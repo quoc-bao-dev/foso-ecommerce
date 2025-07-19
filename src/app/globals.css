@@ -10,6 +10,26 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-brand-50: #E6F1FF;
+  --color-brand-100: #CCE0FF;
+  --color-brand-500: #0373F3;
+  --color-brand-600: #025FCA;
+  --color-brand-700: #024897;
+  --color-brand-800: #013065;
+
+  --color-gray-200: #F4F6F8;
+
+  --color-text-disable: #919EAB;
+  --color-text-secondary: #637381;
+
+  --color-error-dark: #B71D18;
+  --color-error-main: #FF5630;
+  --color-error-darker: #7A0916;
+
+  --color-warning-light: #FFD666;
+  --color-warning-main: #FFAB00;
+  
 }
 
 @media (prefers-color-scheme: dark) {

@@ -1,0 +1,35 @@
+"use client";
+
+import { useHover } from "@/hooks";
+import { CartHover } from "@/modules/cart";
+import { cn } from "@/utils/clients";
+
+const CartHeader = () => {
+  const { isHover, handleMouseEnter, handleMouseLeave } = useHover();
+
+  return (
+    <div
+      className={cn(
+        "relative flex items-center gap-2 cursor-pointer p-2 rounded-full",
+        isHover && "bg-brand-50"
+      )}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      <div className="relative rounded-full">
+        <img src="/icon/cart.png" alt="cart" className="w-8 h-8" />
+        <span className="absolute -top-3.5 -right-3 bg-error-main text-white text-xs rounded-full w-6 h-6 flex items-center justify-center">
+          12
+        </span>
+      </div>
+      <span className="font-medium">Giỏ hàng</span>
+      {isHover && (
+        <div className="absolute top-full right-0 mt-2 z-50">
+          <CartHover />
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default CartHeader;
