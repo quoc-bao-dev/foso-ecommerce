@@ -1,14 +1,13 @@
-import { ProductService } from "@/server/product-service/productService";
 import { NextRequest, NextResponse } from "next/server";
+import { CategoryService } from "@/server/category-service/categoryService";
 
-const productService = new ProductService();
+const categoryService = new CategoryService();
 
 export async function GET(request: NextRequest) {
   try {
     const { searchParams } = new URL(request.url);
     const lang = (searchParams.get("lang") || "vi") as "vi" | "en";
     const id = searchParams.get("id");
-    const categoryId = searchParams.get("categoryId");
     const search = searchParams.get("search");
     const page = parseInt(searchParams.get("page") || "1");
     const limit = parseInt(searchParams.get("limit") || "10");
@@ -40,40 +39,30 @@ export async function GET(request: NextRequest) {
     let total = 0;
 
     if (id) {
-      // Get product by ID
-      const product = productService.getProductById(id, lang);
-      if (!product) {
+      // Get category by ID
+      const category = categoryService.getCategoryById(id, lang);
+      if (!category) {
         return NextResponse.json(
-          { error: "Product not found" },
+          { error: "Category not found" },
           { status: 404 }
         );
       }
-      result = product;
+      result = category;
       total = 1;
     } else if (search) {
-      // Search products with pagination
-      const searchResult = productService.searchProducts(search, lang);
+      // Search categories with pagination
+      const searchResult = categoryService.searchCategories(search, lang);
       total = searchResult.length;
       const startIndex = (page - 1) * limit;
       const endIndex = startIndex + limit;
       result = searchResult.slice(startIndex, endIndex);
-    } else if (categoryId) {
-      // Get products by category ID with pagination
-      const categoryResult = productService.getProductsByCategory(
-        categoryId,
-        lang
-      );
-      total = categoryResult.length;
-      const startIndex = (page - 1) * limit;
-      const endIndex = startIndex + limit;
-      result = categoryResult.slice(startIndex, endIndex);
     } else {
-      // Get all products with pagination
-      const allProducts = productService.getAllProducts(lang);
-      total = allProducts.length;
+      // Get all categories with pagination
+      const allCategories = categoryService.getAllCategories(lang);
+      total = allCategories.length;
       const startIndex = (page - 1) * limit;
       const endIndex = startIndex + limit;
-      result = allProducts.slice(startIndex, endIndex);
+      result = allCategories.slice(startIndex, endIndex);
     }
 
     return NextResponse.json({
@@ -88,7 +77,7 @@ export async function GET(request: NextRequest) {
       hasPrevPage: page > 1,
     });
   } catch (error) {
-    console.error("Product API error:", error);
+    console.error("Category API error:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }
@@ -103,14 +92,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
 
     // Validate required fields
-    const requiredFields = [
-      "name",
-      "image",
-      "price",
-      "oldPrice",
-      "discount",
-      "category",
-    ];
+    const requiredFields = ["name", "description", "image"];
     for (const field of requiredFields) {
       if (!body[field]) {
         return NextResponse.json(
@@ -120,7 +102,7 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Validate name and category structure for multilingual support
+    // Validate name and description structure for multilingual support
     if (!body.name.vi || !body.name.en) {
       return NextResponse.json(
         { error: 'Name must have both "vi" and "en" properties' },
@@ -128,25 +110,28 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (!body.category.vi || !body.category.en) {
+    if (!body.description.vi || !body.description.en) {
       return NextResponse.json(
-        { error: 'Category must have both "vi" and "en" properties' },
+        { error: 'Description must have both "vi" and "en" properties' },
         { status: 400 }
       );
     }
 
-    const newProduct = productService.createProduct(body);
+    const newCategory = categoryService.createCategory({
+      ...body,
+      productCount: body.productCount || 0,
+    });
 
     return NextResponse.json(
       {
         success: true,
-        data: newProduct,
-        message: "Product created successfully",
+        data: newCategory,
+        message: "Category created successfully",
       },
       { status: 201 }
     );
   } catch (error) {
-    console.error("Product creation error:", error);
+    console.error("Category creation error:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }
@@ -163,24 +148,27 @@ export async function PUT(request: NextRequest) {
 
     if (!id) {
       return NextResponse.json(
-        { error: "Product ID is required" },
+        { error: "Category ID is required" },
         { status: 400 }
       );
     }
 
-    const updatedProduct = productService.updateProduct(id, body);
+    const updatedCategory = categoryService.updateCategory(id, body);
 
-    if (!updatedProduct) {
-      return NextResponse.json({ error: "Product not found" }, { status: 404 });
+    if (!updatedCategory) {
+      return NextResponse.json(
+        { error: "Category not found" },
+        { status: 404 }
+      );
     }
 
     return NextResponse.json({
       success: true,
-      data: updatedProduct,
-      message: "Product updated successfully",
+      data: updatedCategory,
+      message: "Category updated successfully",
     });
   } catch (error) {
-    console.error("Product update error:", error);
+    console.error("Category update error:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }
@@ -195,23 +183,26 @@ export async function DELETE(request: NextRequest) {
 
     if (!id) {
       return NextResponse.json(
-        { error: "Product ID is required" },
+        { error: "Category ID is required" },
         { status: 400 }
       );
     }
 
-    const deleted = productService.deleteProduct(id);
+    const deleted = categoryService.deleteCategory(id);
 
     if (!deleted) {
-      return NextResponse.json({ error: "Product not found" }, { status: 404 });
+      return NextResponse.json(
+        { error: "Category not found" },
+        { status: 404 }
+      );
     }
 
     return NextResponse.json({
       success: true,
-      message: "Product deleted successfully",
+      message: "Category deleted successfully",
     });
   } catch (error) {
-    console.error("Product deletion error:", error);
+    console.error("Category deletion error:", error);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 }

@@ -1,0 +1,124 @@
+{
+  "categories": [
+    {
+      "id": "1",
+      "name": {
+        "vi": "Bộ Lọc Dầu",
+        "en": "Oil Filter"
+      },
+      "description": {
+        "vi": "Bộ lọc dầu động cơ chất lượng cao, giúp bảo vệ động cơ khỏi bụi bẩn và tạp chất",
+        "en": "High-quality engine oil filters to protect the engine from dirt and impurities"
+      },
+      "image": "/image/categories/image-1.png",
+      "productCount": 25,
+      "updatedAt": "2024-01-15T10:30:00Z",
+      "createdAt": "2024-01-10T09:00:00Z"
+    },
+    {
+      "id": "2",
+      "name": {
+        "vi": "Bộ Lọc Không Khí",
+        "en": "Air Filter"
+      },
+      "description": {
+        "vi": "Bộ lọc không khí động cơ với thiết kế hiệu quả, giúp tăng hiệu suất động cơ",
+        "en": "Engine air filters with efficient design to improve engine performance"
+      },
+      "image": "/image/categories/image-2.png",
+      "productCount": 30,
+      "updatedAt": "2024-01-16T14:20:00Z",
+      "createdAt": "2024-01-12T11:30:00Z"
+    },
+    {
+      "id": "3",
+      "name": {
+        "vi": "Bộ Lọc Nhiên Liệu",
+        "en": "Fuel Filter"
+      },
+      "description": {
+        "vi": "Bộ lọc nhiên liệu chất lượng cao, đảm bảo nhiên liệu sạch cho hệ thống phun nhiên liệu",
+        "en": "High-quality fuel filters to ensure clean fuel for the fuel injection system"
+      },
+      "image": "/image/categories/image-3.png",
+      "productCount": 18,
+      "updatedAt": "2024-01-17T16:45:00Z",
+      "createdAt": "2024-01-14T13:15:00Z"
+    },
+    {
+      "id": "4",
+      "name": {
+        "vi": "Bộ Lọc Trong Cabin",
+        "en": "Cabin Filter"
+      },
+      "description": {
+        "vi": "Bộ lọc không khí cabin giúp lọc bụi bẩn và mùi hôi, tạo không khí trong lành trong xe",
+        "en": "Cabin air filters to remove dust and odors, creating fresh air inside the vehicle"
+      },
+      "image": "/image/categories/image-4.png",
+      "productCount": 22,
+      "updatedAt": "2024-01-18T09:15:00Z",
+      "createdAt": "2024-01-15T10:45:00Z"
+    },
+    {
+      "id": "5",
+      "name": {
+        "vi": "Bộ Lọc Không Khí Động Cơ",
+        "en": "Engine Air Filter"
+      },
+      "description": {
+        "vi": "Bộ lọc không khí động cơ chuyên dụng với khả năng lọc cao và độ bền tốt",
+        "en": "Specialized engine air filters with high filtration capability and durability"
+      },
+      "image": "/image/categories/image-5.png",
+      "productCount": 28,
+      "updatedAt": "2024-01-19T11:30:00Z",
+      "createdAt": "2024-01-16T14:20:00Z"
+    },
+    {
+      "id": "6",
+      "name": {
+        "vi": "Bộ Lọc Cabin Cao Cấp",
+        "en": "Premium Cabin Filter"
+      },
+      "description": {
+        "vi": "Bộ lọc cabin cao cấp với công nghệ lọc tiên tiến, loại bỏ vi khuẩn và khí độc hại",
+        "en": "Premium cabin filters with advanced filtration technology to remove bacteria and harmful gases"
+      },
+      "image": "/image/categories/image-6.png",
+      "productCount": 15,
+      "updatedAt": "2024-01-20T13:45:00Z",
+      "createdAt": "2024-01-17T15:30:00Z"
+    },
+    {
+      "id": "7",
+      "name": {
+        "vi": "Bộ Lọc Nhiên Liệu Diesel",
+        "en": "Diesel Fuel Filter"
+      },
+      "description": {
+        "vi": "Bộ lọc nhiên liệu diesel chuyên dụng cho động cơ diesel với khả năng lọc nước và tạp chất",
+        "en": "Specialized diesel fuel filters for diesel engines with water and impurity filtration capability"
+      },
+      "image": "/image/categories/image-7.png",
+      "productCount": 12,
+      "updatedAt": "2024-01-21T10:20:00Z",
+      "createdAt": "2024-01-18T12:15:00Z"
+    },
+    {
+      "id": "8",
+      "name": {
+        "vi": "Bộ Lọc Không Khí Thể Thao",
+        "en": "Performance Air Filter"
+      },
+      "description": {
+        "vi": "Bộ lọc không khí thể thao giúp tăng công suất động cơ và cải thiện hiệu suất xe",
+        "en": "Performance air filters to increase engine power and improve vehicle performance"
+      },
+      "image": "/image/categories/image-8.png",
+      "productCount": 20,
+      "updatedAt": "2024-01-22T16:30:00Z",
+      "createdAt": "2024-01-19T14:45:00Z"
+    }
+  ]
+}

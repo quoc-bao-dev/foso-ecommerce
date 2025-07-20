@@ -1,0 +1,436 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": {
+        "vi": "Bộ lọc dầu động cơ Bosch",
+        "en": "Bosch Engine Oil Filter"
+      },
+      "image": "/image/products/image-1.png",
+      "price": 85000,
+      "oldPrice": 120000,
+      "discount": 29,
+      "category": {
+        "vi": "Bộ Lọc Dầu",
+        "en": "Oil Filter"
+      },
+      "categoryId": "1",
+      "updatedAt": "2024-01-15T10:30:00Z",
+      "createdAt": "2024-01-10T09:00:00Z"
+    },
+    {
+      "id": "2",
+      "name": {
+        "vi": "Bộ lọc không khí động cơ Mann",
+        "en": "Mann Engine Air Filter"
+      },
+      "image": "/image/products/image-2.png",
+      "price": 65000,
+      "oldPrice": 95000,
+      "discount": 32,
+      "category": {
+        "vi": "Bộ Lọc Không Khí",
+        "en": "Air Filter"
+      },
+      "categoryId": "2",
+      "updatedAt": "2024-01-16T14:20:00Z",
+      "createdAt": "2024-01-12T11:30:00Z"
+    },
+    {
+      "id": "3",
+      "name": {
+        "vi": "Bộ lọc nhiên liệu Toyota",
+        "en": "Toyota Fuel Filter"
+      },
+      "image": "/image/products/image-3.png",
+      "price": 75000,
+      "oldPrice": 110000,
+      "discount": 32,
+      "category": {
+        "vi": "Bộ Lọc Nhiên Liệu",
+        "en": "Fuel Filter"
+      },
+      "categoryId": "3",
+      "updatedAt": "2024-01-17T16:45:00Z",
+      "createdAt": "2024-01-14T13:15:00Z"
+    },
+    {
+      "id": "4",
+      "name": {
+        "vi": "Bộ lọc cabin Honda",
+        "en": "Honda Cabin Filter"
+      },
+      "image": "/image/products/image-4.png",
+      "price": 55000,
+      "oldPrice": 85000,
+      "discount": 35,
+      "category": {
+        "vi": "Bộ Lọc Trong Cabin",
+        "en": "Cabin Filter"
+      },
+      "categoryId": "4",
+      "updatedAt": "2024-01-18T09:15:00Z",
+      "createdAt": "2024-01-15T10:45:00Z"
+    },
+    {
+      "id": "5",
+      "name": {
+        "vi": "Bộ lọc không khí động cơ Hyundai",
+        "en": "Hyundai Engine Air Filter"
+      },
+      "image": "/image/products/image-5.png",
+      "price": 70000,
+      "oldPrice": 100000,
+      "discount": 30,
+      "category": {
+        "vi": "Bộ Lọc Không Khí Động Cơ",
+        "en": "Engine Air Filter"
+      },
+      "categoryId": "5",
+      "updatedAt": "2024-01-19T11:30:00Z",
+      "createdAt": "2024-01-16T14:20:00Z"
+    },
+    {
+      "id": "6",
+      "name": {
+        "vi": "Bộ lọc cabin cao cấp 3M",
+        "en": "3M Premium Cabin Filter"
+      },
+      "image": "/image/products/image-1.png",
+      "price": 95000,
+      "oldPrice": 140000,
+      "discount": 32,
+      "category": {
+        "vi": "Bộ Lọc Cabin Cao Cấp",
+        "en": "Premium Cabin Filter"
+      },
+      "categoryId": "6",
+      "updatedAt": "2024-01-20T13:45:00Z",
+      "createdAt": "2024-01-17T15:30:00Z"
+    },
+    {
+      "id": "7",
+      "name": {
+        "vi": "Bộ lọc nhiên liệu diesel Isuzu",
+        "en": "Isuzu Diesel Fuel Filter"
+      },
+      "image": "/image/products/image-2.png",
+      "price": 120000,
+      "oldPrice": 180000,
+      "discount": 33,
+      "category": {
+        "vi": "Bộ Lọc Nhiên Liệu Diesel",
+        "en": "Diesel Fuel Filter"
+      },
+      "categoryId": "7",
+      "updatedAt": "2024-01-21T10:20:00Z",
+      "createdAt": "2024-01-18T12:15:00Z"
+    },
+    {
+      "id": "8",
+      "name": {
+        "vi": "Bộ lọc không khí thể thao K&N",
+        "en": "K&N Performance Air Filter"
+      },
+      "image": "/image/products/image-3.png",
+      "price": 450000,
+      "oldPrice": 650000,
+      "discount": 31,
+      "category": {
+        "vi": "Bộ Lọc Không Khí Thể Thao",
+        "en": "Performance Air Filter"
+      },
+      "categoryId": "8",
+      "updatedAt": "2024-01-22T16:30:00Z",
+      "createdAt": "2024-01-19T14:45:00Z"
+    },
+    {
+      "id": "9",
+      "name": {
+        "vi": "Bộ lọc dầu động cơ Mobil 1",
+        "en": "Mobil 1 Engine Oil Filter"
+      },
+      "image": "/image/products/image-4.png",
+      "price": 95000,
+      "oldPrice": 135000,
+      "discount": 30,
+      "category": {
+        "vi": "Bộ Lọc Dầu",
+        "en": "Oil Filter"
+      },
+      "categoryId": "1",
+      "updatedAt": "2024-01-23T09:15:00Z",
+      "createdAt": "2024-01-20T11:30:00Z"
+    },
+    {
+      "id": "10",
+      "name": {
+        "vi": "Bộ lọc không khí động cơ Ford",
+        "en": "Ford Engine Air Filter"
+      },
+      "image": "/image/products/image-5.png",
+      "price": 80000,
+      "oldPrice": 115000,
+      "discount": 30,
+      "category": {
+        "vi": "Bộ Lọc Không Khí",
+        "en": "Air Filter"
+      },
+      "categoryId": "2",
+      "updatedAt": "2024-01-24T14:20:00Z",
+      "createdAt": "2024-01-21T13:45:00Z"
+    },
+    {
+      "id": "11",
+      "name": {
+        "vi": "Bộ lọc nhiên liệu Mazda",
+        "en": "Mazda Fuel Filter"
+      },
+      "image": "/image/products/image-1.png",
+      "price": 85000,
+      "oldPrice": 125000,
+      "discount": 32,
+      "category": {
+        "vi": "Bộ Lọc Nhiên Liệu",
+        "en": "Fuel Filter"
+      },
+      "categoryId": "3",
+      "updatedAt": "2024-01-25T16:30:00Z",
+      "createdAt": "2024-01-22T15:20:00Z"
+    },
+    {
+      "id": "12",
+      "name": {
+        "vi": "Bộ lọc cabin Toyota Camry",
+        "en": "Toyota Camry Cabin Filter"
+      },
+      "image": "/image/products/image-2.png",
+      "price": 65000,
+      "oldPrice": 95000,
+      "discount": 32,
+      "category": {
+        "vi": "Bộ Lọc Trong Cabin",
+        "en": "Cabin Filter"
+      },
+      "categoryId": "4",
+      "updatedAt": "2024-01-26T10:45:00Z",
+      "createdAt": "2024-01-23T12:15:00Z"
+    },
+    {
+      "id": "13",
+      "name": {
+        "vi": "Bộ lọc không khí động cơ Mitsubishi",
+        "en": "Mitsubishi Engine Air Filter"
+      },
+      "image": "/image/products/image-3.png",
+      "price": 75000,
+      "oldPrice": 110000,
+      "discount": 32,
+      "category": {
+        "vi": "Bộ Lọc Không Khí Động Cơ",
+        "en": "Engine Air Filter"
+      },
+      "categoryId": "5",
+      "updatedAt": "2024-01-27T11:30:00Z",
+      "createdAt": "2024-01-24T14:30:00Z"
+    },
+    {
+      "id": "14",
+      "name": {
+        "vi": "Bộ lọc cabin cao cấp Honeywell",
+        "en": "Honeywell Premium Cabin Filter"
+      },
+      "image": "/image/products/image-4.png",
+      "price": 110000,
+      "oldPrice": 160000,
+      "discount": 31,
+      "category": {
+        "vi": "Bộ Lọc Cabin Cao Cấp",
+        "en": "Premium Cabin Filter"
+      },
+      "categoryId": "6",
+      "updatedAt": "2024-01-28T13:15:00Z",
+      "createdAt": "2024-01-25T16:45:00Z"
+    },
+    {
+      "id": "15",
+      "name": {
+        "vi": "Bộ lọc nhiên liệu diesel Hino",
+        "en": "Hino Diesel Fuel Filter"
+      },
+      "image": "/image/products/image-5.png",
+      "price": 150000,
+      "oldPrice": 220000,
+      "discount": 32,
+      "category": {
+        "vi": "Bộ Lọc Nhiên Liệu Diesel",
+        "en": "Diesel Fuel Filter"
+      },
+      "categoryId": "7",
+      "updatedAt": "2024-01-29T09:20:00Z",
+      "createdAt": "2024-01-26T10:30:00Z"
+    },
+    {
+      "id": "16",
+      "name": {
+        "vi": "Bộ lọc không khí thể thao AEM",
+        "en": "AEM Performance Air Filter"
+      },
+      "image": "/image/products/image-1.png",
+      "price": 380000,
+      "oldPrice": 580000,
+      "discount": 34,
+      "category": {
+        "vi": "Bộ Lọc Không Khí Thể Thao",
+        "en": "Performance Air Filter"
+      },
+      "categoryId": "8",
+      "updatedAt": "2024-01-30T14:45:00Z",
+      "createdAt": "2024-01-27T12:20:00Z"
+    },
+    {
+      "id": "17",
+      "name": {
+        "vi": "Bộ lọc dầu động cơ Sakura cao cấp",
+        "en": "Sakura Premium Oil Filter"
+      },
+      "image": "/image/products/image-2.png",
+      "price": 120000,
+      "oldPrice": 160000,
+      "discount": 25,
+      "category": {
+        "vi": "Bộ Lọc Dầu",
+        "en": "Oil Filter"
+      },
+      "categoryId": "1",
+      "updatedAt": "2024-02-01T10:00:00Z",
+      "createdAt": "2024-01-31T09:00:00Z"
+    },
+    {
+      "id": "18",
+      "name": {
+        "vi": "Bộ lọc không khí động cơ Mahle",
+        "en": "Mahle Engine Air Filter"
+      },
+      "image": "/image/products/image-3.png",
+      "price": 135000,
+      "oldPrice": 180000,
+      "discount": 25,
+      "category": {
+        "vi": "Bộ Lọc Không Khí Động Cơ",
+        "en": "Engine Air Filter"
+      },
+      "categoryId": "5",
+      "updatedAt": "2024-02-01T11:00:00Z",
+      "createdAt": "2024-01-31T10:00:00Z"
+    },
+    {
+      "id": "19",
+      "name": {
+        "vi": "Bộ lọc nhiên liệu Bosch cao cấp",
+        "en": "Bosch Premium Fuel Filter"
+      },
+      "image": "/image/products/image-4.png",
+      "price": 210000,
+      "oldPrice": 270000,
+      "discount": 22,
+      "category": {
+        "vi": "Bộ Lọc Nhiên Liệu",
+        "en": "Fuel Filter"
+      },
+      "categoryId": "3",
+      "updatedAt": "2024-02-01T12:00:00Z",
+      "createdAt": "2024-01-31T11:00:00Z"
+    },
+    {
+      "id": "20",
+      "name": {
+        "vi": "Bộ lọc cabin Denso kháng khuẩn",
+        "en": "Denso Antibacterial Cabin Filter"
+      },
+      "image": "/image/products/image-5.png",
+      "price": 155000,
+      "oldPrice": 210000,
+      "discount": 26,
+      "category": {
+        "vi": "Bộ Lọc Trong Cabin",
+        "en": "Cabin Filter"
+      },
+      "categoryId": "4",
+      "updatedAt": "2024-02-01T13:00:00Z",
+      "createdAt": "2024-01-31T12:00:00Z"
+    },
+    {
+      "id": "21",
+      "name": {
+        "vi": "Bộ lọc nhiên liệu diesel Fleetguard",
+        "en": "Fleetguard Diesel Fuel Filter"
+      },
+      "image": "/image/products/image-1.png",
+      "price": 185000,
+      "oldPrice": 250000,
+      "discount": 26,
+      "category": {
+        "vi": "Bộ Lọc Nhiên Liệu Diesel",
+        "en": "Diesel Fuel Filter"
+      },
+      "categoryId": "7",
+      "updatedAt": "2024-02-01T14:00:00Z",
+      "createdAt": "2024-01-31T13:00:00Z"
+    },
+    {
+      "id": "22",
+      "name": {
+        "vi": "Bộ lọc cabin cao cấp Mann Filter",
+        "en": "Mann Premium Cabin Filter"
+      },
+      "image": "/image/products/image-2.png",
+      "price": 220000,
+      "oldPrice": 300000,
+      "discount": 27,
+      "category": {
+        "vi": "Bộ Lọc Cabin Cao Cấp",
+        "en": "Premium Cabin Filter"
+      },
+      "categoryId": "6",
+      "updatedAt": "2024-02-01T15:00:00Z",
+      "createdAt": "2024-01-31T14:00:00Z"
+    },
+    {
+      "id": "23",
+      "name": {
+        "vi": "Bộ lọc không khí thể thao BMC",
+        "en": "BMC Performance Air Filter"
+      },
+      "image": "/image/products/image-3.png",
+      "price": 520000,
+      "oldPrice": 650000,
+      "discount": 20,
+      "category": {
+        "vi": "Bộ Lọc Không Khí Thể Thao",
+        "en": "Performance Air Filter"
+      },
+      "categoryId": "8",
+      "updatedAt": "2024-02-01T16:00:00Z",
+      "createdAt": "2024-01-31T15:00:00Z"
+    },
+    {
+      "id": "24",
+      "name": {
+        "vi": "Bộ lọc không khí thể thao HKS Racing",
+        "en": "HKS Racing Performance Air Filter"
+      },
+      "image": "/image/products/image-4.png",
+      "price": 690000,
+      "oldPrice": 850000,
+      "discount": 19,
+      "category": {
+        "vi": "Bộ Lọc Không Khí Thể Thao",
+        "en": "Performance Air Filter"
+      },
+      "categoryId": "8",
+      "updatedAt": "2024-02-01T17:00:00Z",
+      "createdAt": "2024-01-31T16:00:00Z"
+    }
+  ]
+}

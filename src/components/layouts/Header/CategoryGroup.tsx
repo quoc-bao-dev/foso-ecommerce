@@ -1,9 +1,9 @@
 "use client";
 
 import { useHover } from "@/hooks";
+import { HeroCategory } from "@/modules/category";
 import { cn } from "@/utils/clients";
 import { IoIosArrowDown } from "react-icons/io";
-import HeroCategory from "./HeroCategory";
 
 const CategoryGroup = () => {
   const { isHover, handleMouseEnter, handleMouseLeave } = useHover();

@@ -1,63 +1,47 @@
+"use client";
+
 import { Container } from "@/components/layouts";
+import { useInView } from "@/hooks";
 import {
-  Product,
   ProductCard,
+  ProductCardSkeletonList,
   ProductFilter,
   ProductSortBar,
 } from "@/modules/product";
-
-const MOCK_PRODUCTS: Product[] = [
-  {
-    id: "1",
-    name: "Sản phẩm 1",
-    price: 100000,
-    image: "/images/product-1.png",
-    oldPrice: 100000,
-    discount: 10,
-  },
-  {
-    id: "2",
-    name: "Sản phẩm 2",
-    price: 100000,
-    image: "/images/product-2.png",
-    oldPrice: 100000,
-    discount: 10,
-  },
-  {
-    id: "3",
-    name: "Sản phẩm 3",
-    price: 100000,
-    image: "/images/product-3.png",
-    oldPrice: 100000,
-    discount: 10,
-  },
-  {
-    id: "4",
-    name: "Sản phẩm 4",
-    price: 100000,
-    image: "/images/product-4.png",
-    oldPrice: 100000,
-    discount: 10,
-  },
-  {
-    id: "5",
-    name: "Sản phẩm 5",
-    price: 100000,
-    image: "/images/product-5.png",
-    oldPrice: 100000,
-    discount: 10,
-  },
-  {
-    id: "6",
-    name: "Sản phẩm 6",
-    price: 100000,
-    image: "/images/product-6.png",
-    oldPrice: 100000,
-    discount: 10,
-  },
-];
+import { useInfiniteProducts } from "@/services/product";
+import { useEffect } from "react";
 
 const ProductSection = () => {
+  const {
+    data: products,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+    isLoading,
+  } = useInfiniteProducts({
+    page: 1,
+    limit: 8,
+  });
+
+  const { ref, inView } = useInView();
+
+  console.log("[ProductSection] products", products);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!inView) return;
+      if (!products?.pages[products?.pages?.length - 1]?.hasNextPage) return;
+      if (
+        products?.pages[products?.pages?.length - 1]?.hasNextPage &&
+        !isFetchingNextPage
+      ) {
+        fetchNextPage();
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [inView, hasNextPage, isFetchingNextPage, fetchNextPage]);
+
   return (
     <Container>
       <div className="flex gap-5">
@@ -73,17 +57,31 @@ const ProductSection = () => {
             <h2 className="text-xl font-semibold">Danh sách sản phẩm</h2>
             <ProductSortBar />
           </div>
-          <div className="pt-5 grid grid-cols-4 gap-5">
-            {MOCK_PRODUCTS.map((product) => (
-              <ProductCard
-                key={product.id}
-                {...product}
-                isSale={product.discount > 0}
-              />
-            ))}
+          <div className="pt-5">
+            {isLoading ? (
+              <ProductCardSkeletonList count={8} />
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-5">
+                {products?.pages?.map((page) =>
+                  page?.data?.map((product) => (
+                    <ProductCard
+                      key={product.id}
+                      {...product}
+                      isSale={product.discount > 0}
+                    />
+                  ))
+                )}
+              </div>
+            )}
           </div>
+          {isFetchingNextPage && (
+            <div className="pt-5">
+              <ProductCardSkeletonList count={4} />
+            </div>
+          )}
         </div>
       </div>
+      <div ref={ref as React.RefObject<HTMLDivElement>}></div>
     </Container>
   );
 };
