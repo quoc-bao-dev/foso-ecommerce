@@ -13,6 +13,10 @@ export type Product = {
   inStock?: boolean;
   updatedAt: string;
   createdAt: string;
+  salesCount?: number;
+  isFeatured?: boolean;
+  rating?: number;
+  viewCount?: number;
 };
 
 // Product types based on API documentation
@@ -43,7 +47,14 @@ export interface ProductFilters {
   lang?: "vi" | "en";
   page?: number;
   limit?: number;
-  sort?: "newest" | "oldest" | "price-asc" | "price-desc";
+  sort?:
+    | "newest"
+    | "oldest"
+    | "price-asc"
+    | "price-desc"
+    | "best-seller"
+    | "featured"
+    | "relevant";
   gtPrice?: number;
   ltPrice?: number;
 }

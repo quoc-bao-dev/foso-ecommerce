@@ -2,7 +2,14 @@ import { Product } from "@/modules/product/types/types";
 import fs from "fs";
 import path from "path";
 
-type SortProduct = "newest" | "oldest" | "price-asc" | "price-desc";
+type SortProduct =
+  | "newest"
+  | "oldest"
+  | "price-asc"
+  | "price-desc"
+  | "best-seller"
+  | "featured"
+  | "relevant";
 
 interface ProductData {
   id: string;
@@ -21,6 +28,10 @@ interface ProductData {
   categoryId: string;
   updatedAt: string;
   createdAt: string;
+  salesCount?: number;
+  isFeatured?: boolean;
+  rating?: number;
+  viewCount?: number;
 }
 
 interface ProductsResponse {
@@ -66,6 +77,10 @@ export class ProductService {
       category: product.category[lang],
       updatedAt: product.updatedAt,
       createdAt: product.createdAt,
+      salesCount: product.salesCount || 0,
+      isFeatured: product.isFeatured || false,
+      rating: product.rating || 0,
+      viewCount: product.viewCount || 0,
     };
   }
 
@@ -132,6 +147,33 @@ export class ProductService {
 
       case "price-desc":
         return products.sort((a, b) => b.price - a.price);
+
+      case "best-seller":
+        return products.sort(
+          (a, b) => (b.salesCount || 0) - (a.salesCount || 0)
+        );
+
+      case "featured":
+        return products.sort((a, b) => {
+          // Sắp xếp theo featured trước, sau đó theo rating
+          if (a.isFeatured && !b.isFeatured) return -1;
+          if (!a.isFeatured && b.isFeatured) return 1;
+          return (b.rating || 0) - (a.rating || 0);
+        });
+
+      case "relevant":
+        return products.sort((a, b) => {
+          // Sắp xếp theo tổng điểm liên quan (rating + viewCount + salesCount)
+          const scoreA =
+            (a.rating || 0) * 0.4 +
+            (a.viewCount || 0) * 0.3 +
+            (a.salesCount || 0) * 0.3;
+          const scoreB =
+            (b.rating || 0) * 0.4 +
+            (b.viewCount || 0) * 0.3 +
+            (b.salesCount || 0) * 0.3;
+          return scoreB - scoreA;
+        });
 
       default:
         return products;

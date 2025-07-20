@@ -5,6 +5,9 @@ export type SortProduct =
   | "oldest"
   | "price-asc"
   | "price-desc"
+  | "best-seller"
+  | "featured"
+  | "relevant"
   | null;
 
 type ProductSectionState = {

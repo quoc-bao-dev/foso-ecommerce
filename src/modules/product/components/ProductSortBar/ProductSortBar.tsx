@@ -12,10 +12,10 @@ const ProductSortBar = () => {
   const { setSort } = useProductSectionStore();
 
   const SORT_OPTIONS = [
-    { label: t("product.sortOptions.relevant") },
-    { label: t("product.sortOptions.bestSeller") },
-    { label: t("product.sortOptions.newest") },
-    { label: t("product.sortOptions.featured") },
+    { label: t("product.sortOptions.relevant"), value: "relevant" },
+    { label: t("product.sortOptions.bestSeller"), value: "best-seller" },
+    { label: t("product.sortOptions.newest"), value: "newest" },
+    { label: t("product.sortOptions.featured"), value: "featured" },
   ];
 
   const PRICE_OPTIONS = [
@@ -31,6 +31,11 @@ const ProductSortBar = () => {
     setSort(PRICE_OPTIONS[idx].value);
     setShowPrice(false);
     setActivePrice(idx);
+  };
+
+  const handleMainSort = (idx: number) => {
+    setSort(SORT_OPTIONS[idx].value);
+    setActiveSort(idx);
   };
 
   return (
@@ -58,7 +63,7 @@ const ProductSortBar = () => {
                   : "border-transparent text-gray-800 bg-white hover:border-brand-200"
               }
             `}
-            onClick={() => setActiveSort(idx)}
+            onClick={() => handleMainSort(idx)}
           >
             {opt.label}
             {activeSort === idx && (

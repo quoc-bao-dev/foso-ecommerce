@@ -16,7 +16,11 @@
       },
       "categoryId": "1",
       "updatedAt": "2024-01-15T10:30:00Z",
-      "createdAt": "2024-01-10T09:00:00Z"
+      "createdAt": "2024-01-10T09:00:00Z",
+      "salesCount": 1250,
+      "isFeatured": true,
+      "rating": 4.8,
+      "viewCount": 3200
     },
     {
       "id": "2",
@@ -34,7 +38,11 @@
       },
       "categoryId": "2",
       "updatedAt": "2024-01-16T14:20:00Z",
-      "createdAt": "2024-01-12T11:30:00Z"
+      "createdAt": "2024-01-12T11:30:00Z",
+      "salesCount": 980,
+      "isFeatured": false,
+      "rating": 4.6,
+      "viewCount": 2100
     },
     {
       "id": "3",
@@ -52,7 +60,11 @@
       },
       "categoryId": "3",
       "updatedAt": "2024-01-17T16:45:00Z",
-      "createdAt": "2024-01-14T13:15:00Z"
+      "createdAt": "2024-01-14T13:15:00Z",
+      "salesCount": 2100,
+      "isFeatured": true,
+      "rating": 4.9,
+      "viewCount": 4500
     },
     {
       "id": "4",
@@ -70,7 +82,11 @@
       },
       "categoryId": "4",
       "updatedAt": "2024-01-18T09:15:00Z",
-      "createdAt": "2024-01-15T10:45:00Z"
+      "createdAt": "2024-01-15T10:45:00Z",
+      "salesCount": 750,
+      "isFeatured": false,
+      "rating": 4.3,
+      "viewCount": 1800
     },
     {
       "id": "5",
@@ -88,7 +104,11 @@
       },
       "categoryId": "5",
       "updatedAt": "2024-01-19T11:30:00Z",
-      "createdAt": "2024-01-16T14:20:00Z"
+      "createdAt": "2024-01-16T14:20:00Z",
+      "salesCount": 1100,
+      "isFeatured": true,
+      "rating": 4.7,
+      "viewCount": 2800
     },
     {
       "id": "6",
@@ -106,7 +126,11 @@
       },
       "categoryId": "6",
       "updatedAt": "2024-01-20T13:45:00Z",
-      "createdAt": "2024-01-17T15:30:00Z"
+      "createdAt": "2024-01-17T15:30:00Z",
+      "salesCount": 850,
+      "isFeatured": false,
+      "rating": 4.4,
+      "viewCount": 1900
     },
     {
       "id": "7",
@@ -124,7 +148,11 @@
       },
       "categoryId": "7",
       "updatedAt": "2024-01-21T10:20:00Z",
-      "createdAt": "2024-01-18T12:15:00Z"
+      "createdAt": "2024-01-18T12:15:00Z",
+      "salesCount": 650,
+      "isFeatured": false,
+      "rating": 4.2,
+      "viewCount": 1500
     },
     {
       "id": "8",
@@ -142,7 +170,11 @@
       },
       "categoryId": "8",
       "updatedAt": "2024-01-22T16:30:00Z",
-      "createdAt": "2024-01-19T14:45:00Z"
+      "createdAt": "2024-01-19T14:45:00Z",
+      "salesCount": 320,
+      "isFeatured": true,
+      "rating": 4.9,
+      "viewCount": 2800
     },
     {
       "id": "9",
@@ -160,7 +192,11 @@
       },
       "categoryId": "1",
       "updatedAt": "2024-01-23T09:15:00Z",
-      "createdAt": "2024-01-20T11:30:00Z"
+      "createdAt": "2024-01-20T11:30:00Z",
+      "salesCount": 890,
+      "isFeatured": false,
+      "rating": 4.5,
+      "viewCount": 2200
     },
     {
       "id": "10",
@@ -178,7 +214,11 @@
       },
       "categoryId": "2",
       "updatedAt": "2024-01-24T14:20:00Z",
-      "createdAt": "2024-01-21T13:45:00Z"
+      "createdAt": "2024-01-21T13:45:00Z",
+      "salesCount": 720,
+      "isFeatured": false,
+      "rating": 4.3,
+      "viewCount": 1800
     },
     {
       "id": "11",
@@ -196,7 +236,11 @@
       },
       "categoryId": "3",
       "updatedAt": "2024-01-25T16:30:00Z",
-      "createdAt": "2024-01-22T15:20:00Z"
+      "createdAt": "2024-01-22T15:20:00Z",
+      "salesCount": 680,
+      "isFeatured": false,
+      "rating": 4.4,
+      "viewCount": 1600
     },
     {
       "id": "12",
@@ -214,7 +258,11 @@
       },
       "categoryId": "4",
       "updatedAt": "2024-01-26T10:45:00Z",
-      "createdAt": "2024-01-23T12:15:00Z"
+      "createdAt": "2024-01-23T12:15:00Z",
+      "salesCount": 920,
+      "isFeatured": true,
+      "rating": 4.7,
+      "viewCount": 2400
     },
     {
       "id": "13",
@@ -232,7 +280,11 @@
       },
       "categoryId": "5",
       "updatedAt": "2024-01-27T11:30:00Z",
-      "createdAt": "2024-01-24T14:30:00Z"
+      "createdAt": "2024-01-24T14:30:00Z",
+      "salesCount": 580,
+      "isFeatured": false,
+      "rating": 4.2,
+      "viewCount": 1400
     },
     {
       "id": "14",
@@ -250,7 +302,11 @@
       },
       "categoryId": "6",
       "updatedAt": "2024-01-28T13:15:00Z",
-      "createdAt": "2024-01-25T16:45:00Z"
+      "createdAt": "2024-01-25T16:45:00Z",
+      "salesCount": 420,
+      "isFeatured": false,
+      "rating": 4.6,
+      "viewCount": 1100
     },
     {
       "id": "15",
@@ -268,7 +324,11 @@
       },
       "categoryId": "7",
       "updatedAt": "2024-01-29T09:20:00Z",
-      "createdAt": "2024-01-26T10:30:00Z"
+      "createdAt": "2024-01-26T10:30:00Z",
+      "salesCount": 380,
+      "isFeatured": false,
+      "rating": 4.1,
+      "viewCount": 900
     },
     {
       "id": "16",
@@ -286,7 +346,11 @@
       },
       "categoryId": "8",
       "updatedAt": "2024-01-30T14:45:00Z",
-      "createdAt": "2024-01-27T12:20:00Z"
+      "createdAt": "2024-01-27T12:20:00Z",
+      "salesCount": 280,
+      "isFeatured": true,
+      "rating": 4.8,
+      "viewCount": 3200
     },
     {
       "id": "17",
@@ -304,7 +368,11 @@
       },
       "categoryId": "1",
       "updatedAt": "2024-02-01T10:00:00Z",
-      "createdAt": "2024-01-31T09:00:00Z"
+      "createdAt": "2024-01-31T09:00:00Z",
+      "salesCount": 760,
+      "isFeatured": false,
+      "rating": 4.4,
+      "viewCount": 1900
     },
     {
       "id": "18",
@@ -322,7 +390,11 @@
       },
       "categoryId": "5",
       "updatedAt": "2024-02-01T11:00:00Z",
-      "createdAt": "2024-01-31T10:00:00Z"
+      "createdAt": "2024-01-31T10:00:00Z",
+      "salesCount": 640,
+      "isFeatured": false,
+      "rating": 4.3,
+      "viewCount": 1500
     },
     {
       "id": "19",
@@ -340,7 +412,11 @@
       },
       "categoryId": "3",
       "updatedAt": "2024-02-01T12:00:00Z",
-      "createdAt": "2024-01-31T11:00:00Z"
+      "createdAt": "2024-01-31T11:00:00Z",
+      "salesCount": 520,
+      "isFeatured": true,
+      "rating": 4.7,
+      "viewCount": 1300
     },
     {
       "id": "20",
@@ -358,7 +434,11 @@
       },
       "categoryId": "4",
       "updatedAt": "2024-02-01T13:00:00Z",
-      "createdAt": "2024-01-31T12:00:00Z"
+      "createdAt": "2024-01-31T12:00:00Z",
+      "salesCount": 480,
+      "isFeatured": false,
+      "rating": 4.5,
+      "viewCount": 1200
     },
     {
       "id": "21",
@@ -376,7 +456,11 @@
       },
       "categoryId": "7",
       "updatedAt": "2024-02-01T14:00:00Z",
-      "createdAt": "2024-01-31T13:00:00Z"
+      "createdAt": "2024-01-31T13:00:00Z",
+      "salesCount": 340,
+      "isFeatured": false,
+      "rating": 4.0,
+      "viewCount": 800
     },
     {
       "id": "22",
@@ -394,7 +478,11 @@
       },
       "categoryId": "6",
       "updatedAt": "2024-02-01T15:00:00Z",
-      "createdAt": "2024-01-31T14:00:00Z"
+      "createdAt": "2024-01-31T14:00:00Z",
+      "salesCount": 360,
+      "isFeatured": false,
+      "rating": 4.6,
+      "viewCount": 950
     },
     {
       "id": "23",
@@ -412,7 +500,11 @@
       },
       "categoryId": "8",
       "updatedAt": "2024-02-01T16:00:00Z",
-      "createdAt": "2024-01-31T15:00:00Z"
+      "createdAt": "2024-01-31T15:00:00Z",
+      "salesCount": 180,
+      "isFeatured": false,
+      "rating": 4.7,
+      "viewCount": 2800
     },
     {
       "id": "24",
@@ -430,7 +522,11 @@
       },
       "categoryId": "8",
       "updatedAt": "2024-02-01T17:00:00Z",
-      "createdAt": "2024-01-31T16:00:00Z"
+      "createdAt": "2024-01-31T16:00:00Z",
+      "salesCount": 120,
+      "isFeatured": true,
+      "rating": 4.9,
+      "viewCount": 3500
     }
   ]
 }

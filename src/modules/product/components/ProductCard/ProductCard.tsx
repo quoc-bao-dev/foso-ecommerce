@@ -19,6 +19,10 @@ type ProductCardProps = {
   brand?: string;
   unit?: string;
   inStock?: boolean;
+  salesCount?: number;
+  isFeatured?: boolean;
+  rating?: number;
+  viewCount?: number;
 };
 
 const ProductCard = ({
@@ -34,6 +38,10 @@ const ProductCard = ({
   brand,
   unit,
   inStock = true,
+  salesCount,
+  isFeatured,
+  rating,
+  viewCount,
 }: ProductCardProps) => {
   const { t } = useI18n();
   const { isMobile, isTablet } = useDevice();
@@ -78,12 +86,23 @@ const ProductCard = ({
         } ${className}`
       )}
     >
-      <div className="w-full flex justify-center mb-2">
+      <div className="w-full flex justify-center mb-2 relative">
         <img
           src={image}
           alt={name}
           className="w-full aspect-square object-contain"
         />
+        {isFeatured && (
+          <div className="absolute top-0 left-0 bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+            {t("product.featured")}
+          </div>
+        )}
+        {rating && rating > 0 && (
+          <div className="absolute top-0 right-0 bg-white bg-opacity-90 text-yellow-600 text-xs font-bold px-2 py-1 rounded-full flex items-center gap-1">
+            <span>★</span>
+            <span>{rating.toFixed(1)}</span>
+          </div>
+        )}
       </div>
       {isSale && (
         <div

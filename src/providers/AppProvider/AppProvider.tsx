@@ -1,12 +1,7 @@
-import { LanguageProvider } from "@/contexts";
 import { QueryProvider } from "../QueryProvider";
 
 const AppProvider = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <QueryProvider>
-      <LanguageProvider>{children}</LanguageProvider>
-    </QueryProvider>
-  );
+  return <QueryProvider>{children}</QueryProvider>;
 };
 
 export default AppProvider;
