@@ -1,3 +1,4 @@
+import { SortProduct } from "@/modules/product/store";
 import { ProductService } from "@/server/product-service/productService";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -12,6 +13,13 @@ export async function GET(request: NextRequest) {
     const search = searchParams.get("search");
     const page = parseInt(searchParams.get("page") || "1");
     const limit = parseInt(searchParams.get("limit") || "10");
+    const sort = searchParams.get("sort") as SortProduct;
+
+    // Price filtering parameters
+    const gtPrice = searchParams.get("gt_price");
+    const ltPrice = searchParams.get("lt_price");
+    const minPrice = gtPrice ? parseFloat(gtPrice) : undefined;
+    const maxPrice = ltPrice ? parseFloat(ltPrice) : undefined;
 
     // Validate language parameter
     if (lang !== "vi" && lang !== "en") {
@@ -51,29 +59,83 @@ export async function GET(request: NextRequest) {
       result = product;
       total = 1;
     } else if (search) {
-      // Search products with pagination
+      // Search products with pagination, sorting and price filtering
       const searchResult = productService.searchProducts(search, lang);
-      total = searchResult.length;
+
+      // Apply price filtering if provided
+      let filteredProducts = searchResult;
+      if (minPrice !== undefined || maxPrice !== undefined) {
+        filteredProducts = productService.filterProductsByPrice(
+          searchResult,
+          minPrice,
+          maxPrice
+        );
+      }
+
+      total = filteredProducts.length;
+
+      // Apply sorting if provided
+      let sortedProducts = filteredProducts;
+      if (sort) {
+        sortedProducts = productService.sortProducts(filteredProducts, sort);
+      }
+
       const startIndex = (page - 1) * limit;
       const endIndex = startIndex + limit;
-      result = searchResult.slice(startIndex, endIndex);
+      result = sortedProducts.slice(startIndex, endIndex);
     } else if (categoryId) {
-      // Get products by category ID with pagination
+      // Get products by category ID with pagination, sorting and price filtering
       const categoryResult = productService.getProductsByCategory(
         categoryId,
         lang
       );
-      total = categoryResult.length;
+
+      // Apply price filtering if provided
+      let filteredProducts = categoryResult;
+      if (minPrice !== undefined || maxPrice !== undefined) {
+        filteredProducts = productService.filterProductsByPrice(
+          categoryResult,
+          minPrice,
+          maxPrice
+        );
+      }
+
+      total = filteredProducts.length;
+
+      // Apply sorting if provided
+      let sortedProducts = filteredProducts;
+      if (sort) {
+        sortedProducts = productService.sortProducts(filteredProducts, sort);
+      }
+
       const startIndex = (page - 1) * limit;
       const endIndex = startIndex + limit;
-      result = categoryResult.slice(startIndex, endIndex);
+      result = sortedProducts.slice(startIndex, endIndex);
     } else {
-      // Get all products with pagination
+      // Get all products with pagination, sorting and price filtering
       const allProducts = productService.getAllProducts(lang);
-      total = allProducts.length;
+
+      // Apply price filtering if provided
+      let filteredProducts = allProducts;
+      if (minPrice !== undefined || maxPrice !== undefined) {
+        filteredProducts = productService.filterProductsByPrice(
+          allProducts,
+          minPrice,
+          maxPrice
+        );
+      }
+
+      total = filteredProducts.length;
+
+      // Apply sorting if provided
+      let sortedProducts = filteredProducts;
+      if (sort) {
+        sortedProducts = productService.sortProducts(filteredProducts, sort);
+      }
+
       const startIndex = (page - 1) * limit;
       const endIndex = startIndex + limit;
-      result = allProducts.slice(startIndex, endIndex);
+      result = sortedProducts.slice(startIndex, endIndex);
     }
 
     return NextResponse.json({

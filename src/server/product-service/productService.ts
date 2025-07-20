@@ -2,6 +2,8 @@ import { Product } from "@/modules/product/types/types";
 import fs from "fs";
 import path from "path";
 
+type SortProduct = "newest" | "oldest" | "price-asc" | "price-desc";
+
 interface ProductData {
   id: string;
   name: {
@@ -111,6 +113,31 @@ export class ProductService {
       .map((product) => this.transformProduct(product, lang));
   }
 
+  sortProducts(products: Product[], sort: SortProduct): Product[] {
+    switch (sort) {
+      case "newest":
+        return products.sort(
+          (a, b) =>
+            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        );
+
+      case "oldest":
+        return products.sort(
+          (a, b) =>
+            new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+        );
+
+      case "price-asc":
+        return products.sort((a, b) => a.price - b.price);
+
+      case "price-desc":
+        return products.sort((a, b) => b.price - a.price);
+
+      default:
+        return products;
+    }
+  }
+
   createProduct(
     productData: Omit<ProductData, "id" | "createdAt" | "updatedAt">
   ): Product {
@@ -157,5 +184,27 @@ export class ProductService {
 
     this.writeProducts(filteredProducts);
     return true;
+  }
+
+  filterProductsByPrice(
+    products: Product[],
+    minPrice?: number,
+    maxPrice?: number
+  ): Product[] {
+    return products.filter((product) => {
+      const price = product.price;
+
+      // Filter by minimum price (gt_)
+      if (minPrice !== undefined && price <= minPrice) {
+        return false;
+      }
+
+      // Filter by maximum price (lt_)
+      if (maxPrice !== undefined && price >= maxPrice) {
+        return false;
+      }
+
+      return true;
+    });
   }
 }

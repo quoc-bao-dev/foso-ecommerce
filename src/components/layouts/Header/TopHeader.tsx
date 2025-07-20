@@ -1,8 +1,14 @@
+"use client";
+
+import { LanguageSwitcher } from "@/components/common";
+import { useI18n } from "@/hooks";
 import { Container } from "../Container";
 import Account from "./Account";
 import CartHeader from "./CartHeader";
 
 const TopHeader = () => {
+  const { t } = useI18n();
+
   return (
     <Container>
       <div className="flex items-center justify-between bg-white">
@@ -20,7 +26,7 @@ const TopHeader = () => {
           <div className="flex items-center w-full max-w-2xl rounded-full border-2 border-brand-500 h-[64px] pr-2 pl-5">
             <input
               type="text"
-              placeholder="Tìm sản phẩm"
+              placeholder={t("auth.search")}
               className="flex-1 outline-none bg-transparent text-lg"
             />
             <button className="mr-6">
@@ -35,10 +41,7 @@ const TopHeader = () => {
         {/* Right Section */}
         <div className="flex items-center gap-8 ml-8">
           {/* Language */}
-          <div className="flex items-center gap-2 cursor-pointer">
-            <img src="/icon/vn.png" alt="vietnam" className="w-9 h-9" />
-            <span className="font-medium">VI</span>
-          </div>
+          <LanguageSwitcher />
           {/* Cart */}
           <CartHeader />
 

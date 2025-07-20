@@ -1,26 +1,40 @@
 "use client";
 
+import { useI18n } from "@/hooks";
 import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
-
-const SORT_OPTIONS = [
-  { label: "Liên quan" },
-  { label: "Bán chạy" },
-  { label: "Mới nhất" },
-  { label: "Nổi bật" },
-];
-
-const PRICE_OPTIONS = [{ label: "Thấp → Cao" }, { label: "Cao → Thấp" }];
+import { useProductSectionStore } from "../../store";
 
 const ProductSortBar = () => {
+  const { t } = useI18n();
+  const { setSort } = useProductSectionStore();
+
+  const SORT_OPTIONS = [
+    { label: t("product.sortOptions.relevant") },
+    { label: t("product.sortOptions.bestSeller") },
+    { label: t("product.sortOptions.newest") },
+    { label: t("product.sortOptions.featured") },
+  ];
+
+  const PRICE_OPTIONS = [
+    { label: t("product.priceOptions.lowToHigh"), value: "price-asc" },
+    { label: t("product.priceOptions.highToLow"), value: "price-desc" },
+  ];
+
   const [activeSort, setActiveSort] = useState(0);
   const [showPrice, setShowPrice] = useState(false);
   const [activePrice, setActivePrice] = useState(0);
 
+  const handleSort = (idx: number) => {
+    setSort(PRICE_OPTIONS[idx].value);
+    setShowPrice(false);
+    setActivePrice(idx);
+  };
+
   return (
     <div className="flex items-center gap-6 px-2 py-4 w-fit">
       <span className="text-lg font-medium text-gray-700 mr-2">
-        Sắp xếp theo
+        {t("product.sortBy")}
       </span>
       <div className="flex gap-2">
         {SORT_OPTIONS.map((opt, idx) => (
@@ -68,7 +82,7 @@ const ProductSortBar = () => {
           className="flex items-center gap-1 text-base font-medium text-gray-700 px-2 py-1 rounded hover:bg-gray-100 transition"
           onClick={() => setShowPrice((v) => !v)}
         >
-          Giá:{" "}
+          {t("product.price")}:{" "}
           <span className="font-semibold">
             {PRICE_OPTIONS[activePrice].label}
           </span>
@@ -84,10 +98,7 @@ const ProductSortBar = () => {
                     ? "text-brand-500 font-semibold"
                     : "text-gray-800"
                 }`}
-                onClick={() => {
-                  setActivePrice(idx);
-                  setShowPrice(false);
-                }}
+                onClick={() => handleSort(idx)}
               >
                 {opt.label}
               </button>

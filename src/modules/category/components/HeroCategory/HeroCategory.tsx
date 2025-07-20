@@ -1,6 +1,7 @@
 "use client";
 
 import { Container } from "@/components/layouts";
+import { useI18n } from "@/hooks";
 import { SidebarCategory, SubCategory } from "@/modules/category";
 import { ProductCard, ProductCardSkeleton } from "@/modules/product";
 import { useProductsByCategory } from "@/services/product";
@@ -14,7 +15,11 @@ const HeroCategory = () => {
     setActiveCategory(idx);
   };
 
-  const { data: products, isLoading } = useProductsByCategory(categoryId);
+  const { t, currentLocale } = useI18n();
+  const { data: products, isLoading } = useProductsByCategory(
+    categoryId,
+    currentLocale
+  );
 
   return (
     <div className="bg-gray-200 py-6 relative z-40">
@@ -37,13 +42,13 @@ const HeroCategory = () => {
           <div className="mt-2">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-2xl font-bold text-gray-800">
-                Sản Phẩm Bán Chạy
+                {t("category.bestSeller")}
               </h2>
               <a
                 href="#"
                 className="text-brand-500 font-semibold flex items-center gap-1 hover:underline"
               >
-                Xem tất cả <span className="text-lg">&raquo;</span>
+                {t("category.viewAll")} <span className="text-lg">&raquo;</span>
               </a>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4">

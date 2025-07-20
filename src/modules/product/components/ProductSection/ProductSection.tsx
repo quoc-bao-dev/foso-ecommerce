@@ -1,7 +1,7 @@
 "use client";
 
 import { Container } from "@/components/layouts";
-import { useInView } from "@/hooks";
+import { useI18n, useInView } from "@/hooks";
 import {
   ProductCard,
   ProductCardSkeletonList,
@@ -9,9 +9,12 @@ import {
   ProductSortBar,
 } from "@/modules/product";
 import { useInfiniteProducts } from "@/services/product";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
+import { useProductSectionStore } from "../../store";
 
 const ProductSection = () => {
+  const { t, currentLocale } = useI18n();
+  const { sort, gtPrice, ltPrice } = useProductSectionStore();
   const {
     data: products,
     fetchNextPage,
@@ -21,11 +24,13 @@ const ProductSection = () => {
   } = useInfiniteProducts({
     page: 1,
     limit: 8,
+    sort,
+    gtPrice,
+    ltPrice,
+    lang: currentLocale,
   });
 
   const { ref, inView } = useInView();
-
-  console.log("[ProductSection] products", products);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,6 +47,12 @@ const ProductSection = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [inView, hasNextPage, isFetchingNextPage, fetchNextPage]);
 
+  const productsList = useMemo(() => {
+    const list = products?.pages?.flatMap((page) => page.data) || [];
+
+    return list;
+  }, [products]);
+
   return (
     <Container>
       <div className="flex gap-5">
@@ -54,7 +65,9 @@ const ProductSection = () => {
         {/* product list */}
         <div className="flex-1">
           <div className="flex justify-between items-center">
-            <h2 className="text-xl font-semibold">Danh sách sản phẩm</h2>
+            <h2 className="text-xl font-semibold">
+              {t("product.productList")}
+            </h2>
             <ProductSortBar />
           </div>
           <div className="pt-5">
@@ -62,15 +75,13 @@ const ProductSection = () => {
               <ProductCardSkeletonList count={8} />
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-5">
-                {products?.pages?.map((page) =>
-                  page?.data?.map((product) => (
-                    <ProductCard
-                      key={product.id}
-                      {...product}
-                      isSale={product.discount > 0}
-                    />
-                  ))
-                )}
+                {productsList?.map((product) => (
+                  <ProductCard
+                    key={product.id}
+                    {...product}
+                    isSale={product.discount > 0}
+                  />
+                ))}
               </div>
             )}
           </div>

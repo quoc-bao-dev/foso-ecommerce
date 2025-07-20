@@ -40,6 +40,9 @@ export interface ProductFilters {
   lang?: "vi" | "en";
   page?: number;
   limit?: number;
+  sort?: "newest" | "oldest" | "price-asc" | "price-desc";
+  gtPrice?: number;
+  ltPrice?: number;
 }
 
 export interface ProductResponse {

@@ -1,0 +1,138 @@
+{
+  "common": {
+    "auth": {
+      "home": "Trang chủ",
+      "products": "Sản phẩm",
+      "about": "Về chúng tôi",
+      "contact": "Liên hệ",
+      "search": "Tìm sản phẩm",
+      "cart": "Giỏ hàng",
+      "login": "Đăng nhập",
+      "register": "Đăng ký",
+      "logout": "Đăng xuất",
+      "language": "Ngôn ngữ",
+      "account": "Tài khoản",
+      "personalInfo": "Thông tin cá nhân",
+      "myOrders": "Đơn hàng của tôi",
+      "loginToViewPersonalInfoAndOrders": "Đăng nhập để xem thông tin cá nhân và đơn hàng"
+    },
+    "header": {
+      "about": "Về Chúng Tôi",
+      "blog": "Bài Viết",
+      "catalog": "Catalog",
+      "contact": "Liên Hệ",
+      "support": "Hỗ trợ 24/7",
+      "freeDelivery": "Miễn Phí Vận Chuyển",
+      "fastShipping": "Giao Hàng Nhanh 2h",
+      "30DaysReturn": "30 Ngày Đổi Trả"
+    },
+    "smallHeader": {
+      "discountCode": "Nhập mã NEWBIE giảm ngay 10% cho lần đầu mua hàng.",
+      "discountCodeHighlight": "NEWBIE",
+      "hotline": "Hotline: 1900 558 888",
+      "downloadApp": "Tải ứng dụng"
+    },
+
+    "home": {
+      "storeLocatorBanner": {
+        "title": "Xem hệ thống 88 cửa hàng trên toàn quốc",
+        "viewNow": "Xem ngay"
+      },
+      "hero": {
+        "title": "Chào mừng đến với cửa hàng của chúng tôi",
+        "subtitle": "Khám phá các sản phẩm chất lượng cao",
+        "cta": "Mua ngay"
+      },
+      "link": {
+        "home": "Trang chủ",
+        "products": "Sản phẩm"
+      },
+      "features": {
+        "title": "Tại sao chọn chúng tôi",
+        "quality": "Chất lượng cao",
+        "shipping": "Giao hàng nhanh",
+        "support": "Hỗ trợ 24/7"
+      },
+      "serviceFeatures": {
+        "freeShipping": {
+          "title": "Miễn phí vận chuyển",
+          "description": "Với hoá đơn từ 1 triệu"
+        },
+        "support247": {
+          "title": "Hỗ trợ 24/7",
+          "description": "Đội ngũ CSKH tận tình sẵn sàng lắng nghe và phục vụ tận tâm"
+        },
+        "fastDelivery": {
+          "title": "Giao hàng nhanh 2h",
+          "description": "Trong vòng bán kính 10km nội thành TP HCM"
+        },
+        "return30Days": {
+          "title": "30 ngày đổi trả",
+          "description": "Hoàn tiền 100% nếu phát sinh lỗi từ NSX hoặc đơn vị vận chuyển"
+        }
+      }
+    },
+    "category": {
+      "title": "Danh Mục Sản Phẩm",
+      "bestSeller": "Sản Phẩm Bán Chạy",
+      "viewAll": "Xem tất cả"
+    },
+    "product": {
+      "addToCart": "Thêm vào giỏ",
+      "buyNow": "Mua ngay",
+      "outOfStock": "Hết hàng",
+      "inStock": "Còn hàng",
+      "price": "Giá",
+      "description": "Mô tả",
+      "reviews": "Đánh giá",
+      "sale": "Giá cực sốc",
+      "filter": "Bộ Lọc",
+      "category": "Danh mục",
+      "priceRange": "Khoảng giá",
+      "brand": "Thương hiệu",
+      "year": "Năm sản xuất",
+      "origin": "Xuất xứ",
+      "productList": "Danh sách sản phẩm",
+      "sortBy": "Sắp xếp theo",
+      "sortOptions": {
+        "relevant": "Liên quan",
+        "bestSeller": "Bán chạy",
+        "newest": "Mới nhất",
+        "featured": "Nổi bật"
+      },
+      "priceOptions": {
+        "lowToHigh": "Thấp → Cao",
+        "highToLow": "Cao → Thấp"
+      },
+      "categories": {
+        "airFilter": "Lọc gió Động cơ - Air Filter",
+        "fuelFilter": "Lọc Nhiên Liệu - Fuel Filter",
+        "oilFilter": "Bộ lọc dầu",
+        "uncategorized": "Chưa phân loại",
+        "other": "Khác"
+      },
+      "priceRanges": {
+        "under100k": "Dưới 100,000 đ",
+        "100kTo300k": "100,000 đ – 300,000 đ",
+        "300kTo500k": "300,000 đ – 500,000 đ",
+        "over500k": "Trên 500,000 đ"
+      },
+      "brands": {
+        "asakashi": "Asakashi",
+        "bosch": "Bosch",
+        "hyundai": "Huyndai"
+      },
+      "years": {
+        "2021": "2021",
+        "2020": "2020",
+        "2019": "2019",
+        "2018": "2018"
+      },
+      "origins": {
+        "germany": "Đức",
+        "japan": "Nhật Bản",
+        "china": "Trung Quốc"
+      }
+    }
+  }
+}

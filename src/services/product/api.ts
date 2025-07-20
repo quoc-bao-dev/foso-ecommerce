@@ -26,6 +26,11 @@ export class ProductApi {
       if (filters?.lang) params.append("lang", filters.lang);
       if (filters?.page) params.append("page", filters.page.toString());
       if (filters?.limit) params.append("limit", filters.limit.toString());
+      if (filters?.sort) params.append("sort", filters.sort);
+      if (filters?.gtPrice)
+        params.append("gt_price", filters.gtPrice.toString());
+      if (filters?.ltPrice)
+        params.append("lt_price", filters.ltPrice.toString());
 
       const url = `${BASE_URL}${
         params.toString() ? `?${params.toString()}` : ""
@@ -49,6 +54,11 @@ export class ProductApi {
       if (filters?.lang) params.append("lang", filters.lang);
       if (filters?.page) params.append("page", filters.page.toString());
       if (filters?.limit) params.append("limit", filters.limit.toString());
+      if (filters?.sort) params.append("sort", filters.sort);
+      if (filters?.gtPrice)
+        params.append("gt_price", filters.gtPrice.toString());
+      if (filters?.ltPrice)
+        params.append("lt_price", filters.ltPrice.toString());
 
       const url = `${BASE_URL}?${params.toString()}`;
       const response = await httpClient.get<Product[]>(url);

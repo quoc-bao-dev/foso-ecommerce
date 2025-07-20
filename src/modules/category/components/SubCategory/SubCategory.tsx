@@ -1,7 +1,12 @@
+import { useI18n } from "@/hooks";
 import { useCategories } from "@/services/category";
 
 const SubCategory = () => {
-  const { data: categories } = useCategories({ limit: 6 });
+  const { currentLocale } = useI18n();
+  const { data: categories } = useCategories({
+    limit: 6,
+    lang: currentLocale,
+  });
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
       {categories?.map((sub, idx) => (

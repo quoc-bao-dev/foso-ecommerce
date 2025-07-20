@@ -1,3 +1,6 @@
+"use client";
+
+import { useI18n } from "@/hooks";
 import { cn } from "@/utils/clients";
 
 type ProductCardProps = {
@@ -19,6 +22,8 @@ const ProductCard = ({
   isSale,
   className,
 }: ProductCardProps) => {
+  const { t } = useI18n();
+
   return (
     <div
       className={cn(
@@ -36,7 +41,7 @@ const ProductCard = ({
         <div className="rounded-full bg-gradient-to-r from-warning-light to-warning-main h-[25px] flex items-center justify-center gap-1.5 px-2.5 mb-2">
           <img src="/icon/fire.png" alt="fire" className="w-4 h-4" />
           <span className="text-xs font-semibold text-error-darker">
-            Giá cực sốc
+            {t("product.sale")}
           </span>
         </div>
       )}
@@ -55,7 +60,7 @@ const ProductCard = ({
         </span>
       </div>
       <button className="w-full bg-brand-50 text-[#0a5adf] font-semibold rounded-lg py-2 mt-auto hover:bg-[#d0e3fa] transition">
-        Mua ngay
+        {t("product.buyNow")}
       </button>
     </div>
   );

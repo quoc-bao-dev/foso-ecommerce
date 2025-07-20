@@ -1,5 +1,6 @@
 "use client";
 
+import { useI18n } from "@/hooks";
 import { useCategories } from "@/services/category";
 
 type SidebarCategoryProps = {
@@ -13,7 +14,10 @@ const SidebarCategory = ({
   setCategoryId,
   handleActiveCategory,
 }: SidebarCategoryProps) => {
-  const { data: categories } = useCategories();
+  const { currentLocale } = useI18n();
+  const { data: categories } = useCategories({
+    lang: currentLocale,
+  });
 
   const handleMouseEnter = (idx: number) => {
     setCategoryId(categories?.[idx]?.id || "");

@@ -1,0 +1,137 @@
+{
+  "common": {
+    "auth": {
+      "home": "Home",
+      "products": "Products",
+      "about": "About",
+      "contact": "Contact",
+      "search": "Search products",
+      "cart": "Cart",
+      "login": "Login",
+      "register": "Register",
+      "logout": "Logout",
+      "language": "Language",
+      "account": "Account",
+      "personalInfo": "Personal Info",
+      "myOrders": "My Orders",
+      "loginToViewPersonalInfoAndOrders": "Login to view personal info and orders"
+    },
+    "header": {
+      "about": "About",
+      "blog": "Blog",
+      "catalog": "Catalog",
+      "contact": "Contact",
+      "support": "Support 24/7",
+      "freeDelivery": "Free Delivery",
+      "fastShipping": "Fast Shipping",
+      "30DaysReturn": "30 Days Return"
+    },
+    "smallHeader": {
+      "discountCode": "Enter code NEWBIE for 10% off your first purchase.",
+      "discountCodeHighlight": "NEWBIE",
+      "hotline": "Hotline: 1900 558 888",
+      "downloadApp": "Download App"
+    },
+    "home": {
+      "storeLocatorBanner": {
+        "title": "View all 88 stores nationwide",
+        "viewNow": "View Now"
+      },
+      "hero": {
+        "title": "Welcome to our store",
+        "subtitle": "Discover high-quality products",
+        "cta": "Shop Now"
+      },
+      "link": {
+        "home": "Home",
+        "products": "Products"
+      },
+      "features": {
+        "title": "Why choose us",
+        "quality": "High Quality",
+        "shipping": "Fast Shipping",
+        "support": "24/7 Support"
+      },
+      "serviceFeatures": {
+        "freeShipping": {
+          "title": "Free Shipping",
+          "description": "For orders over 1 million VND"
+        },
+        "support247": {
+          "title": "24/7 Support",
+          "description": "Dedicated customer service team ready to listen and serve wholeheartedly"
+        },
+        "fastDelivery": {
+          "title": "Fast 2h Delivery",
+          "description": "Within 10km radius of Ho Chi Minh City center"
+        },
+        "return30Days": {
+          "title": "30 Days Return",
+          "description": "100% refund if errors occur from manufacturer or shipping unit"
+        }
+      }
+    },
+    "category": {
+      "title": "Product Category",
+      "bestSeller": "Best Seller",
+      "viewAll": "View All"
+    },
+    "product": {
+      "addToCart": "Add to Cart",
+      "buyNow": "Buy Now",
+      "outOfStock": "Out of Stock",
+      "inStock": "In Stock",
+      "price": "Price",
+      "description": "Description",
+      "reviews": "Reviews",
+      "sale": "Hot Sale",
+      "filter": "Filter",
+      "category": "Category",
+      "priceRange": "Price Range",
+      "brand": "Brand",
+      "year": "Year",
+      "origin": "Origin",
+      "productList": "Product List",
+      "sortBy": "Sort by",
+      "sortOptions": {
+        "relevant": "Relevant",
+        "bestSeller": "Best Seller",
+        "newest": "Newest",
+        "featured": "Featured"
+      },
+      "priceOptions": {
+        "lowToHigh": "Low to High",
+        "highToLow": "High to Low"
+      },
+      "categories": {
+        "airFilter": "Air Filter - Engine",
+        "fuelFilter": "Fuel Filter",
+        "oilFilter": "Oil Filter",
+        "uncategorized": "Uncategorized",
+        "other": "Other"
+      },
+      "priceRanges": {
+        "under100k": "Under 100,000 VND",
+        "100kTo300k": "100,000 VND – 300,000 VND",
+        "300kTo500k": "300,000 VND – 500,000 VND",
+        "over500k": "Over 500,000 VND"
+      },
+      "brands": {
+        "asakashi": "Asakashi",
+        "bosch": "Bosch",
+        "hyundai": "Hyundai"
+      },
+      "years": {
+        "2021": "2021",
+        "2020": "2020",
+        "2019": "2019",
+        "2018": "2018"
+      },
+      "origins": {
+        "germany": "Germany",
+        "japan": "Japan",
+        "china": "China"
+      }
+    }
+  }
+}

@@ -2,11 +2,15 @@
 
 import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
+import { useSetFilter } from "../../store";
+import { useI18n } from "@/hooks";
 
 // Định nghĩa type cho option
 interface FilterOption {
   label: string;
   count?: number;
+  gtPrice?: number;
+  ltPrice?: number;
 }
 
 interface FilterConfig {
@@ -17,69 +21,87 @@ interface FilterConfig {
   defaultOpen?: boolean;
 }
 
-const FILTERS: FilterConfig[] = [
-  {
-    key: "category",
-    label: "Danh mục sản phẩm",
-    type: "checkbox",
-    options: [
-      { label: "Lọc gió Động cơ - Air Filter", count: 24 },
-      { label: "Lọc Nhiên Liệu - Fuel Filter", count: 24 },
-      { label: "Bộ lọc dầu", count: 24 },
-      { label: "Chưa phân loại", count: 24 },
-      { label: "Khác", count: 24 },
-    ],
-    defaultOpen: true,
-  },
-  {
-    key: "price",
-    label: "Khoảng giá",
-    type: "radio",
-    options: [
-      { label: "Dưới 100,000 đ" },
-      { label: "100,000 đ – 300,000 đ" },
-      { label: "300,000 đ – 500,000 đ" },
-      { label: "Trên 500,000 đ" },
-    ],
-    defaultOpen: true,
-  },
-  {
-    key: "brand",
-    label: "Thương hiệu",
-    type: "checkbox",
-    options: [
-      { label: "Asakashi", count: 24 },
-      { label: "Bosch", count: 24 },
-      { label: "Huyndai", count: 24 },
-    ],
-    defaultOpen: false,
-  },
-  {
-    key: "year",
-    label: "Năm sản xuất",
-    type: "checkbox",
-    options: [
-      { label: "2021", count: 24 },
-      { label: "2020", count: 24 },
-      { label: "2019", count: 24 },
-      { label: "2018", count: 24 },
-    ],
-    defaultOpen: false,
-  },
-  {
-    key: "origin",
-    label: "Xuất xứ",
-    type: "checkbox",
-    options: [
-      { label: "Đức", count: 24 },
-      { label: "Nhật Bản", count: 24 },
-      { label: "Trung Quốc", count: 24 },
-    ],
-    defaultOpen: false,
-  },
-];
-
 const ProductFilter = () => {
+  const { t } = useI18n();
+
+  const FILTERS: FilterConfig[] = [
+    {
+      key: "category",
+      label: t("product.category"),
+      type: "checkbox",
+      options: [
+        { label: t("product.categories.airFilter"), count: 24 },
+        { label: t("product.categories.fuelFilter"), count: 24 },
+        { label: t("product.categories.oilFilter"), count: 24 },
+        { label: t("product.categories.uncategorized"), count: 24 },
+        { label: t("product.categories.other"), count: 24 },
+      ],
+      defaultOpen: true,
+    },
+    {
+      key: "price",
+      label: t("product.priceRange"),
+      type: "radio",
+      options: [
+        {
+          label: t("product.priceRanges.under100k"),
+          gtPrice: 0,
+          ltPrice: 100000,
+        },
+        {
+          label: t("product.priceRanges.100kTo300k"),
+          gtPrice: 100000,
+          ltPrice: 300000,
+        },
+        {
+          label: t("product.priceRanges.300kTo500k"),
+          gtPrice: 300000,
+          ltPrice: 500000,
+        },
+        {
+          label: t("product.priceRanges.over500k"),
+          gtPrice: 500000,
+          ltPrice: null,
+        },
+      ],
+      defaultOpen: true,
+    },
+    {
+      key: "brand",
+      label: t("product.brand"),
+      type: "checkbox",
+      options: [
+        { label: t("product.brands.asakashi"), count: 24 },
+        { label: t("product.brands.bosch"), count: 24 },
+        { label: t("product.brands.hyundai"), count: 24 },
+      ],
+      defaultOpen: false,
+    },
+    {
+      key: "year",
+      label: t("product.year"),
+      type: "checkbox",
+      options: [
+        { label: t("product.years.2021"), count: 24 },
+        { label: t("product.years.2020"), count: 24 },
+        { label: t("product.years.2019"), count: 24 },
+        { label: t("product.years.2018"), count: 24 },
+      ],
+      defaultOpen: false,
+    },
+    {
+      key: "origin",
+      label: t("product.origin"),
+      type: "checkbox",
+      options: [
+        { label: t("product.origins.germany"), count: 24 },
+        { label: t("product.origins.japan"), count: 24 },
+        { label: t("product.origins.china"), count: 24 },
+      ],
+      defaultOpen: false,
+    },
+  ];
+
   // State cho collapse từng section
   const [openSections, setOpenSections] = useState(() =>
     FILTERS.reduce((acc, cur) => {
@@ -96,6 +118,8 @@ const ProductFilter = () => {
     year: [],
     origin: [],
   });
+
+  const { setLtPrice, setGtPrice } = useSetFilter();
 
   const handleToggleSection = (key: string) => {
     setOpenSections((prev) => ({ ...prev, [key]: !prev[key] }));
@@ -114,6 +138,10 @@ const ProductFilter = () => {
 
   const handleRadio = (section: string, idx: number) => {
     setSelected((prev) => ({ ...prev, [section]: idx }));
+    const option = FILTERS.find((filter) => filter.key === section);
+
+    setGtPrice(option?.options[idx].gtPrice ?? null);
+    setLtPrice(option?.options[idx].ltPrice ?? null);
   };
 
   return (
@@ -122,7 +150,9 @@ const ProductFilter = () => {
       <div className="flex items-center gap-2 mb-4">
         {/* <FaFilter className="text-blue-600 text-xl" /> */}
         <img src="/icon/filter.png" alt="filter" className="size-8" />
-        <h2 className="text-blue-600 text-2xl font-bold">Bộ Lọc</h2>
+        <h2 className="text-blue-600 text-2xl font-bold">
+          {t("product.filter")}
+        </h2>
       </div>
       {/* Filter Sections */}
       {FILTERS.map((filter) => (

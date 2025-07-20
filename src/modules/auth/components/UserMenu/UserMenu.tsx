@@ -7,11 +7,13 @@ import {
   IoPersonCircle,
 } from "react-icons/io5";
 import { useAuth } from "../../store/useAuth";
+import { useI18n } from "@/hooks";
 
 // Mock user data - thay thế bằng context hoặc state management thực tế
 
 const UserMenu = () => {
   const { user, isLoading, login, logout } = useAuth();
+  const { t } = useI18n();
 
   const handleLogin = () => {
     login("user@example.com", "password");
@@ -46,18 +48,18 @@ const UserMenu = () => {
             <div className="space-y-1">
               <button className="w-full flex items-center gap-3 px-3 py-2 text-left text-gray-700 hover:bg-gray-50 rounded-lg transition-colors">
                 <IoPerson className="text-lg" />
-                <span>Thông tin cá nhân</span>
+                <span>{t("auth.personalInfo")}</span>
               </button>
               <button className="w-full flex items-center gap-3 px-3 py-2 text-left text-gray-700 hover:bg-gray-50 rounded-lg transition-colors">
                 <IoDocumentText className="text-lg" />
-                <span>Đơn hàng của tôi</span>
+                <span>{t("auth.myOrders")}</span>
               </button>
               <button
                 onClick={logout}
                 className="w-full flex items-center gap-3 px-3 py-2 text-left text-red-600 hover:bg-red-50 rounded-lg transition-colors"
               >
                 <IoLogOut className="text-lg" />
-                <span>Đăng xuất</span>
+                <span>{t("auth.logout")}</span>
               </button>
             </div>
           </div>
@@ -65,13 +67,13 @@ const UserMenu = () => {
           // Not logged in menu
           <div className="p-4">
             <p className="text-gray-600 text-sm mb-4">
-              Đăng nhập để xem thông tin cá nhân và đơn hàng
+              {t("auth.loginToViewPersonalInfoAndOrders")}
             </p>
             <button
               onClick={handleLogin}
               className="w-full bg-brand-500 text-white py-2 px-4 rounded-lg hover:bg-brand-600 transition-colors font-medium"
             >
-              Đăng nhập
+              {t("auth.login")}
             </button>
           </div>
         )}

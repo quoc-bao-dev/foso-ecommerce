@@ -11,7 +11,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Product } from "../../types";
-import { ProductCard } from "../ProductCard";
+import { ProductCard, ProductCardSkeleton } from "../ProductCard";
 
 interface ProductCarouselProps {
   products: Product[];
@@ -20,6 +20,7 @@ interface ProductCarouselProps {
   autoplay?: boolean;
   showNavigation?: boolean;
   showPagination?: boolean;
+  isLoading?: boolean;
 }
 
 const ProductCarousel = ({
@@ -29,6 +30,7 @@ const ProductCarousel = ({
   autoplay = true,
   showNavigation = true,
   showPagination = false,
+  isLoading = false,
 }: ProductCarouselProps) => {
   const swiperRef = useRef<SwiperType | null>(null);
 
@@ -79,7 +81,7 @@ const ProductCarousel = ({
           swiperRef.current = swiper;
         }}
       >
-        {products.map((product, index) => (
+        {products?.map((product, index) => (
           <SwiperSlide key={product.name + index}>
             <ProductCard
               name={product.name}
@@ -91,6 +93,12 @@ const ProductCarousel = ({
             />
           </SwiperSlide>
         ))}
+        {isLoading &&
+          Array.from({ length: 5 }).map((_, index) => (
+            <SwiperSlide key={index}>
+              <ProductCardSkeleton />
+            </SwiperSlide>
+          ))}
       </Swiper>
 
       {/* Custom Navigation Arrows */}

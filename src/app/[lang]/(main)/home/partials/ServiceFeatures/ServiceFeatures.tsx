@@ -1,33 +1,33 @@
 "use client";
 
 import { Container } from "@/components/layouts";
-import { FaShippingFast, FaHeadset, FaTruck, FaBox } from "react-icons/fa";
-
-const FEATURES = [
-  {
-    icon: "/icon/delivery.png",
-    title: "Miễn phí vận chuyển",
-    description: "Với hoá đơn từ 1 triệu",
-  },
-  {
-    icon: "/icon/support.png",
-    title: "Hỗ trợ 24/7",
-    description: "Đội ngũ CSKH tận tình sẵn sàng lắng nghe và phục vụ tận tâm",
-  },
-  {
-    icon: "/icon/truck.png",
-    title: "Giao hàng nhanh 2h",
-    description: "Trong vòng bán kính 10km nội thành TP HCM",
-  },
-  {
-    icon: "/icon/return.png",
-    title: "30 ngày đổi trả",
-    description:
-      "Hoàn tiền 100% nếu phát sinh lỗi từ NSX hoặc đơn vị vận chuyển",
-  },
-];
+import { useI18n } from "@/hooks";
 
 const ServiceFeatures = () => {
+  const { t } = useI18n();
+
+  const FEATURES = [
+    {
+      icon: "/icon/delivery.png",
+      title: t("home.serviceFeatures.freeShipping.title"),
+      description: t("home.serviceFeatures.freeShipping.description"),
+    },
+    {
+      icon: "/icon/support.png",
+      title: t("home.serviceFeatures.support247.title"),
+      description: t("home.serviceFeatures.support247.description"),
+    },
+    {
+      icon: "/icon/truck.png",
+      title: t("home.serviceFeatures.fastDelivery.title"),
+      description: t("home.serviceFeatures.fastDelivery.description"),
+    },
+    {
+      icon: "/icon/return.png",
+      title: t("home.serviceFeatures.return30Days.title"),
+      description: t("home.serviceFeatures.return30Days.description"),
+    },
+  ];
   return (
     <Container>
       <div className="bg-gray-100 py-8">

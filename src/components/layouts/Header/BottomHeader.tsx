@@ -1,3 +1,6 @@
+"use client";
+
+import { useI18n } from "@/hooks";
 import Container from "../Container/Container";
 import CategoryGroup from "./CategoryGroup";
 
@@ -7,10 +10,10 @@ type NavItemProps = {
 };
 
 const navItems: NavItemProps[] = [
-  { label: "Về Chúng Tôi", href: "#" },
-  { label: "Bài Viết", href: "#" },
-  { label: "Catalog", href: "#" },
-  { label: "Liên Hệ", href: "#" },
+  { label: "header.about", href: "#" },
+  { label: "header.blog", href: "#" },
+  { label: "header.catalog", href: "#" },
+  { label: "header.contact", href: "#" },
 ];
 
 type ServiceItemProps = {
@@ -19,13 +22,14 @@ type ServiceItemProps = {
 };
 
 const serviceItems: ServiceItemProps[] = [
-  { icon: "/icon/clock.png", label: "Hỗ trợ 24/7" },
-  { icon: "/icon/free-delivery.png", label: "Miễn Phí Vận Chuyển" },
-  { icon: "/icon/shipping.png", label: "Giao Hàng Nhanh 2h" },
-  { icon: "/icon/sync.png", label: "30 Ngày Đổi Trả" },
+  { icon: "/icon/clock.png", label: "header.support" },
+  { icon: "/icon/free-delivery.png", label: "header.freeDelivery" },
+  { icon: "/icon/shipping.png", label: "header.fastShipping" },
+  { icon: "/icon/sync.png", label: "header.30DaysReturn" },
 ];
 
 const BottomHeader = () => {
+  const { t } = useI18n();
   const NavItem = ({ label, href }: NavItemProps) => {
     return (
       <a
@@ -55,14 +59,22 @@ const BottomHeader = () => {
           {/* Center: Menu */}
           <nav className="flex items-center gap-1 text-base font-medium text-gray-800">
             {navItems.map((item) => (
-              <NavItem key={item.label} {...item} />
+              <NavItem
+                key={item.label}
+                label={t(item.label)}
+                href={item.href}
+              />
             ))}
           </nav>
         </div>
         {/* Right: Service Info */}
         <div className="flex items-center gap-1">
           {serviceItems.map((item) => (
-            <ServiceItem key={item.label} {...item} />
+            <ServiceItem
+              key={item.label}
+              icon={item.icon}
+              label={t(item.label)}
+            />
           ))}
         </div>
       </Container>

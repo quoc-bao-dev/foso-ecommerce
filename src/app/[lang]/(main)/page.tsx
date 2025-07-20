@@ -1,6 +1,6 @@
+import { ProductSection } from "@/modules/product";
 import {
   HomeBreadcrumbs,
-  ProductSection,
   ServiceFeatures,
   StoreLocatorBanner,
 } from "./home/partials";

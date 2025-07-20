@@ -1,13 +1,8 @@
-"use client";
-
+import { LanguageSwitcher } from "@/components/common";
 import { IoIosArrowDown } from "react-icons/io";
 import { Container } from "../Container";
 
 const Footer = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
     <footer className="relative">
       <div className="absolute inset-0 bg-black opacity-35">
@@ -138,14 +133,9 @@ const Footer = () => {
               </a>
               {/* Language Selector */}
               <div className="flex justify-end">
-                <div className="flex items-center gap-2 cursor-pointer hover:bg-gray-200 rounded-lg pt-8 transition">
+                <div className="flex items-center gap-2 cursor-pointer rounded-lg pt-8 transition">
                   {/* Placeholder for Vietnamese flag - replace with actual image */}
-                  <img
-                    src="/icon/vn.png"
-                    alt="vn"
-                    className="size-9 rounded-full"
-                  />
-                  <span className="text-gray-700 font-medium">VI</span>
+                  <LanguageSwitcher />
                   <IoIosArrowDown className="text-gray-500" />
                 </div>
               </div>

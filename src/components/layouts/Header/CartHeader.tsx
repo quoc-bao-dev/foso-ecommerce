@@ -1,16 +1,16 @@
 "use client";
 
-import { useHover } from "@/hooks";
+import { useHover, useI18n } from "@/hooks";
 import { CartHover } from "@/modules/cart";
 import { cn } from "@/utils/clients";
 
 const CartHeader = () => {
   const { isHover, handleMouseEnter, handleMouseLeave } = useHover();
-
+  const { t } = useI18n();
   return (
     <div
       className={cn(
-        "relative flex items-center gap-2 cursor-pointer p-2 rounded-full",
+        "relative flex items-center gap-2 cursor-pointer p-2 rounded-full min-w-[121px]",
         isHover && "bg-brand-50"
       )}
       onMouseEnter={handleMouseEnter}
@@ -22,7 +22,7 @@ const CartHeader = () => {
           12
         </span>
       </div>
-      <span className="font-medium">Giỏ hàng</span>
+      <span className="font-medium">{t("auth.cart")}</span>
       {isHover && (
         <div className="absolute top-full right-0 mt-2 z-50">
           <CartHover />
