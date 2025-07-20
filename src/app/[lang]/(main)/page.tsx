@@ -28,7 +28,6 @@ const Page = async ({ params }: { params: Promise<{ lang: "vi" | "en" }> }) => {
       <ProductSectionServer initialProducts={initialProducts} />
       <ServiceFeatures />
       <StoreLocatorBanner />
-      <div className="h-9"></div>
       <GettingModal />
     </div>
   );

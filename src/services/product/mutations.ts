@@ -1,7 +1,4 @@
-import {
-  ProductData,
-  ProductUpdateData,
-} from "@/services/product/types/product";
+import { ProductData, ProductUpdateData } from "@/modules/product";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import ProductApi from "./api";
 import { productKeys } from "./queries";
