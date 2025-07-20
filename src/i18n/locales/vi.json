@@ -94,6 +94,21 @@
       "origin": "Xuất xứ",
       "productList": "Danh sách sản phẩm",
       "sortBy": "Sắp xếp theo",
+      "searchResults": "Kết quả tìm kiếm",
+      "searchResultsFor": "Kết quả tìm kiếm cho",
+      "resultsFound": "kết quả tìm thấy",
+      "products": "sản phẩm",
+      "loadMore": "Tải thêm",
+      "noResultsFound": "Không tìm thấy kết quả",
+      "noResultsDescription": "Không có sản phẩm nào phù hợp với từ khóa tìm kiếm của bạn. Vui lòng thử lại với từ khóa khác.",
+      "browseAllProducts": "Xem tất cả sản phẩm",
+      "suggestions": "Gợi ý tìm kiếm",
+      "searchSuggestions": {
+        "airFilter": "Bộ lọc không khí",
+        "fuelFilter": "Bộ lọc nhiên liệu",
+        "oilFilter": "Bộ lọc dầu",
+        "airIntakeFilter": "Bộ lọc khí"
+      },
       "sortOptions": {
         "relevant": "Liên quan",
         "bestSeller": "Bán chạy",
@@ -133,6 +148,23 @@
         "japan": "Nhật Bản",
         "china": "Trung Quốc"
       }
+    },
+    "cart": {
+      "removeItem": "Xóa sản phẩm",
+      "addToCart": "Thêm vào giỏ hàng",
+      "viewCart": "Xem giỏ hàng",
+      "checkout": "Thanh toán",
+      "emptyCart": "Giỏ hàng trống",
+      "cartTotal": "Tổng giỏ hàng",
+      "items": "sản phẩm",
+      "quantity": "Số lượng",
+      "price": "Giá",
+      "total": "Tổng cộng",
+      "discount": "Giảm giá",
+      "finalPrice": "Thành tiền",
+      "emptyCartDescription": "Hãy thêm sản phẩm vào giỏ hàng",
+      "addingToCart": "Đang thêm vào giỏ hàng...",
+      "addedToCart": "Đã thêm!"
     }
   }
 }

@@ -82,15 +82,8 @@ const ProductCarousel = ({
         }}
       >
         {products?.map((product, index) => (
-          <SwiperSlide key={product.name + index}>
-            <ProductCard
-              name={product.name}
-              image={product.image}
-              price={product.price}
-              oldPrice={product.oldPrice}
-              discount={product.discount}
-              isSale={product.discount > 0}
-            />
+          <SwiperSlide key={product.id || product.name + index}>
+            <ProductCard {...product} isSale={product.discount > 0} />
           </SwiperSlide>
         ))}
         {isLoading &&

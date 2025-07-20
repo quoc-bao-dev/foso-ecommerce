@@ -8,6 +8,9 @@ export type Product = {
   oldPrice: number;
   discount: number;
   category: string;
+  brand?: string;
+  unit?: string;
+  inStock?: boolean;
   updatedAt: string;
   createdAt: string;
 };

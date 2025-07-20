@@ -1,12 +1,16 @@
 "use client";
 
 import { useHover, useI18n } from "@/hooks";
-import { CartHover } from "@/modules/cart";
+import { CartHover, useCartStore } from "@/modules/cart";
 import { cn } from "@/utils/clients";
 
 const CartHeader = () => {
   const { isHover, handleMouseEnter, handleMouseLeave } = useHover();
   const { t } = useI18n();
+  const { getTotalItems } = useCartStore();
+
+  const totalItems = getTotalItems();
+
   return (
     <div
       className={cn(
@@ -18,9 +22,11 @@ const CartHeader = () => {
     >
       <div className="relative rounded-full">
         <img src="/icon/cart.png" alt="cart" className="w-8 h-8" />
-        <span className="absolute -top-3.5 -right-3 bg-error-main text-white text-xs rounded-full w-6 h-6 flex items-center justify-center">
-          12
-        </span>
+        {totalItems > 0 && (
+          <span className="absolute -top-3.5 -right-3 bg-error-main text-white text-xs rounded-full w-6 h-6 flex items-center justify-center">
+            {totalItems > 99 ? "99+" : totalItems}
+          </span>
+        )}
       </div>
       <span className="font-medium">{t("auth.cart")}</span>
       {isHover && (

@@ -79,13 +79,9 @@ class HttpClient {
         // Add request ID for tracking
         config.headers["X-Request-ID"] = this.generateRequestId();
 
-        console.log(
-          `🚀 API Request: ${config.method?.toUpperCase()} ${config.url}`
-        );
         return config;
       },
       (error) => {
-        console.error("❌ Request Error:", error);
         return Promise.reject(error);
       }
     );
@@ -93,9 +89,6 @@ class HttpClient {
     // Response interceptor
     this.instance.interceptors.response.use(
       (response: AxiosResponse) => {
-        console.log(
-          `✅ API Response: ${response.status} ${response.config.url}`
-        );
         return response;
       },
       (error: AxiosError) => {
@@ -131,22 +124,18 @@ class HttpClient {
         break;
       case 403:
         // Handle forbidden
-        console.error("❌ Access forbidden:", message);
         break;
       case 404:
         // Handle not found
-        console.error("❌ Resource not found:", message);
         break;
       case 422:
         // Handle validation errors
-        console.error("❌ Validation error:", message);
         break;
       case 500:
         // Handle server error
-        console.error("❌ Server error:", message);
         break;
       default:
-        console.error("❌ API Error:", message);
+        break;
     }
   }
 

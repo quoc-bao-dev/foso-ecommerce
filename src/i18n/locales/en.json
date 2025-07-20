@@ -93,6 +93,21 @@
       "origin": "Origin",
       "productList": "Product List",
       "sortBy": "Sort by",
+      "searchResults": "Search Results",
+      "searchResultsFor": "Search results for",
+      "resultsFound": "results found",
+      "products": "products",
+      "loadMore": "Load More",
+      "noResultsFound": "No Results Found",
+      "noResultsDescription": "No products match your search keywords. Please try again with different keywords.",
+      "browseAllProducts": "Browse All Products",
+      "suggestions": "Search Suggestions",
+      "searchSuggestions": {
+        "airFilter": "Air Filter",
+        "fuelFilter": "Fuel Filter",
+        "oilFilter": "Oil Filter",
+        "airIntakeFilter": "Air Filter"
+      },
       "sortOptions": {
         "relevant": "Relevant",
         "bestSeller": "Best Seller",
@@ -132,6 +147,23 @@
         "japan": "Japan",
         "china": "China"
       }
+    },
+    "cart": {
+      "removeItem": "Remove item",
+      "addToCart": "Add to cart",
+      "viewCart": "View cart",
+      "checkout": "Checkout",
+      "emptyCart": "Cart is empty",
+      "cartTotal": "Cart total",
+      "items": "items",
+      "quantity": "Quantity",
+      "price": "Price",
+      "total": "Total",
+      "discount": "Discount",
+      "finalPrice": "Final price",
+      "emptyCartDescription": "Add products to your cart",
+      "addingToCart": "Adding to cart...",
+      "addedToCart": "Added to cart!"
     }
   }
 }

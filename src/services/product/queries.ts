@@ -138,8 +138,6 @@ export const useInfiniteProducts = (filters?: ProductFilters) => {
       const currentPage = lastPage?.page;
       const hasNextPage = lastPage?.hasNextPage;
 
-      console.log("[hasNextPage hook]", hasNextPage ? currentPage + 1 : false);
-
       return hasNextPage ? currentPage + 1 : false;
     },
     staleTime: 5 * 60 * 1000,

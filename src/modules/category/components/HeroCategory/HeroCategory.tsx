@@ -54,12 +54,8 @@ const HeroCategory = () => {
             <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
               {products?.data?.map((prod, idx) => (
                 <ProductCard
-                  key={prod.name + idx}
-                  name={prod.name}
-                  image={prod.image}
-                  price={prod.price}
-                  oldPrice={prod.oldPrice}
-                  discount={prod.discount}
+                  key={prod.id || prod.name + idx}
+                  {...prod}
                   className="min-w-[200px] p-3"
                 />
               ))}
