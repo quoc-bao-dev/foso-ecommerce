@@ -223,7 +223,6 @@ const Footer = () => {
                 >
                   {/* Placeholder for Vietnamese flag - replace with actual image */}
                   <LanguageSwitcher />
-                  <IoIosArrowDown className="text-gray-500" />
                 </div>
               </div>
             </div>
