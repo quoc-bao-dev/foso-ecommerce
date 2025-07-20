@@ -166,6 +166,18 @@
       "emptyCartDescription": "Hãy thêm sản phẩm vào giỏ hàng",
       "addingToCart": "Đang thêm vào giỏ hàng...",
       "addedToCart": "Đã thêm!"
+    },
+    "toast": {
+      "success": "Thành công!",
+      "error": "Đã xảy ra lỗi",
+      "loading": "Đang tải...",
+      "addedToCart": "Đã thêm vào giỏ hàng!",
+      "addToCartError": "Không thể thêm vào giỏ hàng",
+      "removedFromCart": "Đã loại khỏi giỏ hàng",
+      "quantityUpdated": "Cập nhật số lượng thành công",
+      "cartCleared": "Đã xóa toàn bộ giỏ hàng",
+      "proceedToCheckout": "Thanh toán thành công!",
+      "navigatingToCart": "Đang chuyển hướng đến trang giỏ hàng"
     }
   }
 }

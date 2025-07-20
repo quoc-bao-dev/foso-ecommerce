@@ -6,7 +6,7 @@ import axios, {
 } from "axios";
 
 // Environment variables for API configuration
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "/";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "";
 const API_TIMEOUT = parseInt(process.env.NEXT_PUBLIC_API_TIMEOUT || "10000");
 
 // Custom error interface
@@ -145,8 +145,10 @@ class HttpClient {
       localStorage.removeItem("auth_token");
       sessionStorage.removeItem("auth_token");
 
-      // Redirect to login page
-      window.location.href = "/auth/login";
+      // Only redirect if not already on login page to avoid redirect loop
+      if (!window.location.pathname.includes("/auth/login")) {
+        window.location.href = "/auth/login";
+      }
     }
   }
 

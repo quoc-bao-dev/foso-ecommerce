@@ -3,6 +3,7 @@ import {
   HomeBreadcrumbs,
   ServiceFeatures,
   StoreLocatorBanner,
+  GettingModal,
 } from "./home/partials";
 import HeroSection from "./home/partials/HeroSection";
 
@@ -17,6 +18,8 @@ const Page = () => {
       <ProductSection />
       <ServiceFeatures />
       <StoreLocatorBanner />
+      <div className="h-9"></div>
+      <GettingModal />
     </div>
   );
 };

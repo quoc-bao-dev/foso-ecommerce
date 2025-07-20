@@ -1,6 +1,6 @@
 "use client";
 
-import { useI18n } from "@/hooks";
+import { useI18n, useToast } from "@/hooks";
 import { useCartActions } from "@/modules/cart";
 import { formatPrice } from "@/utils/clients";
 import { useState } from "react";
@@ -38,17 +38,23 @@ const ResultItem = ({
   const [isWishlist, setIsWishlist] = useState(false);
 
   const { addItem } = useCartActions();
+  const { showCartSuccess, showCartError } = useToast();
 
   const handleAddToCart = () => {
-    addItem({
-      id,
-      name,
-      price,
-      image,
-      brand,
-      category,
-      inStock,
-    });
+    try {
+      addItem({
+        id,
+        name,
+        price,
+        image,
+        brand,
+        category,
+        inStock,
+      });
+      showCartSuccess(name);
+    } catch (error) {
+      showCartError(name);
+    }
   };
 
   return (

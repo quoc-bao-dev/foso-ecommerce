@@ -1,6 +1,6 @@
 "use client";
 
-import { useI18n } from "@/hooks";
+import { useI18n, useToast } from "@/hooks";
 import { useDevice } from "@/hooks/useDevice";
 import { useCartActions } from "@/modules/cart";
 import { cn } from "@/utils/clients";
@@ -46,6 +46,7 @@ const ProductCard = ({
   const { t } = useI18n();
   const { isMobile, isTablet } = useDevice();
   const { addItem } = useCartActions();
+  const { showCartSuccess, showCartError } = useToast();
   const [isAdding, setIsAdding] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
 
@@ -67,12 +68,16 @@ const ProductCard = ({
         inStock,
       });
 
+      // Show toast success
+      showCartSuccess(name);
+
       // Show success feedback
       setShowSuccess(true);
       setTimeout(() => {
         setShowSuccess(false);
       }, 2000);
     } catch (error) {
+      showCartError(name);
     } finally {
       setIsAdding(false);
     }

@@ -165,6 +165,18 @@
       "emptyCartDescription": "Add products to your cart",
       "addingToCart": "Adding to cart...",
       "addedToCart": "Added to cart!"
+    },
+    "toast": {
+      "success": "Success!",
+      "error": "An error occurred",
+      "loading": "Loading...",
+      "addedToCart": "Added to cart!",
+      "addToCartError": "Failed to add to cart",
+      "removedFromCart": "Removed from cart",
+      "quantityUpdated": "Quantity updated successfully",
+      "cartCleared": "Cart has been cleared",
+      "proceedToCheckout": "Checkout successful!",
+      "navigatingToCart": "Navigating to cart"
     }
   }
 }

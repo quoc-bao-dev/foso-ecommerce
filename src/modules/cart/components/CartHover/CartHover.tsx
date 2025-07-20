@@ -1,6 +1,6 @@
 "use client";
 
-import { useI18n } from "@/hooks";
+import { useI18n, useToast } from "@/hooks";
 import { formatPrice } from "@/utils/clients";
 import { useCartActions, useCartItems, useCartTotals } from "../../store";
 import CartItem from "../CartItem/CartItem";
@@ -10,13 +10,15 @@ const CartHover = () => {
   const items = useCartItems();
   const { totalItems, totalPrice, totalDiscount, finalPrice } = useCartTotals();
   const { clearCart } = useCartActions();
+  const { showSuccess } = useToast();
 
   const handleCheckout = () => {
-    console.log("Proceeding to checkout...");
+    clearCart();
+    showSuccess(t("toast.proceedToCheckout"));
   };
 
   const handleViewCart = () => {
-    console.log("Navigating to cart page...");
+    showSuccess(t("toast.navigatingToCart"));
   };
 
   return (
@@ -29,7 +31,10 @@ const CartHover = () => {
           </h3>
           {items.length > 0 && (
             <button
-              onClick={clearCart}
+              onClick={() => {
+                clearCart();
+                showSuccess(t("toast.cartCleared"));
+              }}
               className="text-sm text-red-500 hover:text-red-700 transition-colors"
             >
               {t("cart.removeItem")}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useI18n } from "@/hooks";
+import { useI18n, useToast } from "@/hooks";
 import { formatPrice } from "@/utils/clients";
 import { useState } from "react";
 import { useCartActions } from "../../store";
@@ -13,6 +13,7 @@ interface CartItemProps {
 const CartItem = ({ item }: CartItemProps) => {
   const { t } = useI18n();
   const { updateQuantity, removeItem } = useCartActions();
+  const { showSuccess } = useToast();
   const [isUpdating, setIsUpdating] = useState(false);
 
   const handleQuantityChange = async (newQuantity: number) => {
@@ -21,6 +22,7 @@ const CartItem = ({ item }: CartItemProps) => {
     setIsUpdating(true);
     try {
       updateQuantity(item.id, newQuantity);
+      showSuccess(t("toast.quantityUpdated"));
     } finally {
       setIsUpdating(false);
     }
@@ -28,6 +30,7 @@ const CartItem = ({ item }: CartItemProps) => {
 
   const handleRemove = () => {
     removeItem(item.id);
+    showSuccess(t("toast.removedFromCart", { product: item.name }));
   };
 
   return (
