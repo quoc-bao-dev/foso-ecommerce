@@ -3,12 +3,61 @@ import {
   generateProductPaths,
 } from "@/utils/staticGeneration";
 import { notFound } from "next/navigation";
+import { Metadata } from "next";
 
 // Generate static params for all products
 export async function generateStaticParams() {
   const viPaths = await generateProductPaths("vi");
   const enPaths = await generateProductPaths("en");
   return [...viPaths, ...enPaths];
+}
+
+// Generate metadata for the product page
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string; lang: "vi" | "en" }>;
+}): Promise<Metadata> {
+  const { id, lang } = await params;
+  const product = await preloadProductById(id, lang);
+
+  if (!product) {
+    return {
+      title: "Product Not Found",
+      description: "The requested product could not be found.",
+    };
+  }
+
+  const title = `${product.name} | Sunfil 1`;
+  const description = `${
+    product.name
+  } - ${product.price.toLocaleString()} VNĐ. ${product.category} category. ${
+    product.rating ? `Rating: ${product.rating}/5.` : ""
+  }`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [
+        {
+          url: product.image,
+          width: 800,
+          height: 600,
+          alt: product.name,
+        },
+      ],
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [product.image],
+    },
+  };
 }
 
 const ProductDetailPage = async ({
