@@ -1,6 +1,7 @@
 "use client";
 
 import { useI18n } from "@/hooks";
+import { useDevice } from "@/hooks/useDevice";
 import Container from "../Container/Container";
 import CategoryGroup from "./CategoryGroup";
 
@@ -30,6 +31,8 @@ const serviceItems: ServiceItemProps[] = [
 
 const BottomHeader = () => {
   const { t } = useI18n();
+  const { isMobile, isTablet } = useDevice();
+
   const NavItem = ({ label, href }: NavItemProps) => {
     return (
       <a
@@ -45,19 +48,31 @@ const BottomHeader = () => {
     return (
       <div className="flex items-center gap-2 text-brand-500 font-medium p-2 hover:bg-brand-50 rounded-lg">
         <img src={icon} alt={label} className="size-[20px]" />
-        <span className="text-gray-800">{label}</span>
+        <span className={`text-gray-800 ${isMobile ? "!text-sm" : ""}`}>
+          {label}
+        </span>
       </div>
     );
   };
 
   return (
     <div className="bg-white">
-      <Container className="flex items-center justify-between relative">
-        <div className="flex gap-6">
+      <Container
+        className={`flex items-center justify-between relative ${
+          isMobile ? "!flex-col !gap-4" : ""
+        }`}
+      >
+        <div
+          className={`flex gap-6 ${isMobile ? "!flex-col !gap-4 !w-full" : ""}`}
+        >
           {/* Left: Danh Mục Sản Phẩm */}
           <CategoryGroup />
           {/* Center: Menu */}
-          <nav className="flex items-center gap-1 text-base font-medium text-gray-800">
+          <nav
+            className={`flex items-center gap-1 text-base font-medium text-gray-800 ${
+              isMobile ? "!justify-center !flex-wrap" : ""
+            }`}
+          >
             {navItems.map((item) => (
               <NavItem
                 key={item.label}
@@ -68,7 +83,11 @@ const BottomHeader = () => {
           </nav>
         </div>
         {/* Right: Service Info */}
-        <div className="flex items-center gap-1">
+        <div
+          className={`flex items-center gap-1 ${
+            isMobile ? "!justify-center !flex-wrap !gap-2" : ""
+          }`}
+        >
           {serviceItems.map((item) => (
             <ServiceItem
               key={item.label}
