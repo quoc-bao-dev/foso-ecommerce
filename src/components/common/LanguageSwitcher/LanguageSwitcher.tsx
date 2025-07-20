@@ -7,13 +7,13 @@ import { useState } from "react";
 
 export function LanguageSwitcher() {
   const { currentLocale, switchLanguage } = useLanguage();
-  const { isMobile, isTablet } = useDevice();
+  const { isMobile } = useDevice();
   const t = useTranslations("common");
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleLanguage = () => {
     const nextLocale = currentLocale === "vi" ? "en" : "vi";
-    switchLanguage(nextLocale, true); // Preserve current path
+    switchLanguage(nextLocale, false); // Preserve current path
     setIsOpen(false);
   };
 

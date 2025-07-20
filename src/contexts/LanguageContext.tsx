@@ -6,7 +6,7 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 
 interface LanguageContextType {
   currentLocale: Locale;
-  setLanguage: (locale: Locale) => void;
+  switchLanguage: (locale: Locale, preservePath?: boolean) => void;
   availableLocales: Locale[];
 }
 
@@ -31,7 +31,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     }
   }, [pathname]);
 
-  const setLanguage = (locale: Locale) => {
+  const setLanguage = (locale: Locale, preservePath: boolean = true) => {
     setCurrentLocale(locale);
 
     // Update URL to reflect new locale
@@ -43,12 +43,16 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     }
 
     const newPath = pathSegments.join("/");
-    router.push(newPath);
+    if (preservePath) {
+      router.push(newPath);
+    } else {
+      router.push(`/${locale}`);
+    }
   };
 
   const value: LanguageContextType = {
     currentLocale,
-    setLanguage,
+    switchLanguage: setLanguage,
     availableLocales: [...locales],
   };
 
