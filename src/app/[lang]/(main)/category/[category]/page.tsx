@@ -1,8 +1,8 @@
-import {
-  preloadProductsByCategory,
-  generateCategoryPaths,
-} from "@/utils/staticGeneration";
 import { ProductCard } from "@/modules/product";
+import {
+  generateCategoryPaths,
+  preloadProductsByCategory,
+} from "@/utils/staticGeneration";
 
 // Generate static params for all categories
 export async function generateStaticParams() {
@@ -14,18 +14,16 @@ export async function generateStaticParams() {
 const CategoryPage = async ({
   params,
 }: {
-  params: { category: string; lang: "vi" | "en" };
+  params: Promise<{ category: string; lang: "vi" | "en" }>;
 }) => {
-  // Pre-load products by category for static generation
-  const products = await preloadProductsByCategory(
-    params.category,
-    params.lang
-  );
+  const { category, lang } = await params;
+
+  const products = await preloadProductsByCategory(category, lang);
 
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-8">
-        Category: {decodeURIComponent(params.category)}
+        Category: {decodeURIComponent(category)}
       </h1>
 
       {products.length === 0 ? (

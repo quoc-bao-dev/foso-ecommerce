@@ -1,21 +1,22 @@
 import { ProductSectionServer } from "@/modules/product";
+import { preloadFeaturedProducts } from "@/utils/staticGeneration";
 import {
+  GettingModal,
   HomeBreadcrumbs,
   ServiceFeatures,
   StoreLocatorBanner,
-  GettingModal,
 } from "./home/partials";
 import HeroSection from "./home/partials/HeroSection";
-import { preloadFeaturedProducts } from "@/utils/staticGeneration";
 
 // Generate static params for all languages
 export async function generateStaticParams() {
   return [{ lang: "vi" }, { lang: "en" }];
 }
 
-const Page = async ({ params }: { params: { lang: "vi" | "en" } }) => {
+const Page = async ({ params }: { params: Promise<{ lang: "vi" | "en" }> }) => {
+  const { lang } = await params;
   // Pre-load products for static generation
-  const initialProducts = await preloadFeaturedProducts(params.lang, 8);
+  const initialProducts = await preloadFeaturedProducts(lang, 8);
 
   return (
     <div>

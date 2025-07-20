@@ -5,12 +5,12 @@ import { useTranslations } from "next-intl";
 
 export function useI18n() {
   const t = useTranslations("common");
-  const { currentLocale, setLanguage, availableLocales } = useLanguage();
+  const { currentLocale, switchLanguage, availableLocales } = useLanguage();
 
   return {
     t,
     currentLocale,
-    setLanguage,
+    switchLanguage,
     availableLocales,
   };
 }

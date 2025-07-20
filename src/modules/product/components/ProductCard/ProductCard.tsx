@@ -1,9 +1,10 @@
 "use client";
 
-import { useI18n, useToast } from "@/hooks";
+import { useI18n, useLocateLink, useToast } from "@/hooks";
 import { useDevice } from "@/hooks/useDevice";
 import { useCartActions } from "@/modules/cart";
 import { cn } from "@/utils/clients";
+import Link from "next/link";
 import { useState } from "react";
 
 type ProductCardProps = {
@@ -50,6 +51,8 @@ const ProductCard = ({
   const [isAdding, setIsAdding] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
 
+  const getLink = useLocateLink();
+
   const handleAddToCart = async () => {
     if (!inStock) return;
 
@@ -84,7 +87,7 @@ const ProductCard = ({
   };
 
   return (
-    <div
+    <article
       className={cn(
         `bg-white rounded-xl flex flex-col items-start min-w-[220px] shadow hover:shadow-lg transition ${
           isMobile ? "p-4" : "p-6"
@@ -92,11 +95,13 @@ const ProductCard = ({
       )}
     >
       <div className="w-full flex justify-center mb-2 relative">
-        <img
-          src={image}
-          alt={name}
-          className="w-full aspect-square object-contain"
-        />
+        <Link href={getLink(`/product/${id}`)}>
+          <img
+            src={image}
+            alt={name}
+            className="w-full aspect-square object-contain"
+          />
+        </Link>
         {isFeatured && (
           <div className="absolute top-0 left-0 bg-yellow-500 text-white text-xs font-bold px-2 py-1 rounded-full">
             {t("product.featured")}
@@ -200,7 +205,7 @@ const ProductCard = ({
           t("product.buyNow")
         )}
       </button>
-    </div>
+    </article>
   );
 };
 

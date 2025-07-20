@@ -14,10 +14,11 @@ export async function generateStaticParams() {
 const ProductDetailPage = async ({
   params,
 }: {
-  params: { id: string; lang: "vi" | "en" };
+  params: Promise<{ id: string; lang: "vi" | "en" }>;
 }) => {
+  const { id, lang } = await params;
   // Pre-load product data for static generation
-  const product = await preloadProductById(params.id, params.lang);
+  const product = await preloadProductById(id, lang);
 
   if (!product) {
     notFound();
