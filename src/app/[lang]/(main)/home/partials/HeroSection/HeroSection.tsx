@@ -15,7 +15,7 @@ const HeroSection = () => {
   return (
     <Container>
       {/* Banner */}
-      <div className="h-[500px] rounded-t-2xl overflow-hidden">
+      <div className="h-[500px] rounded-t-2xl overflow-hidden hidden md:block">
         <div className="h-full w-full ">
           <img
             src="/image/hero-banner.png"
@@ -26,7 +26,7 @@ const HeroSection = () => {
         </div>
       </div>
       {/* Product Carousel */}
-      <div className="bg-[#0a5adf] rounded-b-2xl p-12">
+      <div className="bg-[#0a5adf] rounded-b-2xl rounded-t-2xl md:rounded-t-none p-12">
         <ProductCarousel
           products={products}
           slidesPerView={5}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useI18n } from "@/hooks";
+import { useDevice } from "@/hooks/useDevice";
 import { useCartActions } from "@/modules/cart";
 import { cn } from "@/utils/clients";
 import { useState } from "react";
@@ -35,6 +36,7 @@ const ProductCard = ({
   inStock = true,
 }: ProductCardProps) => {
   const { t } = useI18n();
+  const { isMobile, isTablet } = useDevice();
   const { addItem } = useCartActions();
   const [isAdding, setIsAdding] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
@@ -71,7 +73,9 @@ const ProductCard = ({
   return (
     <div
       className={cn(
-        `bg-white rounded-xl p-6 flex flex-col items-start min-w-[220px] shadow hover:shadow-lg transition ${className}`
+        `bg-white rounded-xl flex flex-col items-start min-w-[220px] shadow hover:shadow-lg transition ${
+          isMobile ? "p-4" : "p-6"
+        } ${className}`
       )}
     >
       <div className="w-full flex justify-center mb-2">
@@ -82,24 +86,52 @@ const ProductCard = ({
         />
       </div>
       {isSale && (
-        <div className="rounded-full bg-gradient-to-r from-warning-light to-warning-main h-[25px] flex items-center justify-center gap-1.5 px-2.5 mb-2">
-          <img src="/icon/fire.png" alt="fire" className="w-4 h-4" />
-          <span className="text-xs font-semibold text-error-darker">
+        <div
+          className={`rounded-full bg-gradient-to-r from-warning-light to-warning-main flex items-center justify-center gap-1.5 px-2.5 mb-2 ${
+            isMobile ? "h-[20px]" : "h-[25px]"
+          }`}
+        >
+          <img
+            src="/icon/fire.png"
+            alt="fire"
+            className={`${isMobile ? "w-3 h-3" : "w-4 h-4"}`}
+          />
+          <span
+            className={`font-semibold text-error-darker ${
+              isMobile ? "text-[10px]" : "text-xs"
+            }`}
+          >
             {t("product.sale")}
           </span>
         </div>
       )}
-      <div className="font-semibold text-sm text-gray-800 mb-1 line-clamp-2 min-h-[40px]">
+      <div
+        className={`font-semibold text-gray-800 mb-1 line-clamp-2 min-h-[40px] ${
+          isMobile ? "text-xs" : "text-sm"
+        }`}
+      >
         {name}
       </div>
-      <div className="font-bold text-lg text-[#B71D18] mb-1">
+      <div
+        className={`font-bold text-[#B71D18] mb-1 ${
+          isMobile ? "text-base" : "text-lg"
+        }`}
+      >
         {price.toLocaleString()} đ
       </div>
       <div className="flex items-center gap-2 mb-2">
-        <span className="text-gray-400 line-through text-xs">
+        <span
+          className={`text-gray-400 line-through ${
+            isMobile ? "text-[10px]" : "text-xs"
+          }`}
+        >
           {oldPrice.toLocaleString()} đ
         </span>
-        <span className="text-[#B71D18] text-xs font-semibold">
+        <span
+          className={`text-[#B71D18] font-semibold ${
+            isMobile ? "text-[10px]" : "text-xs"
+          }`}
+        >
           -{discount}%
         </span>
       </div>
@@ -107,7 +139,9 @@ const ProductCard = ({
         onClick={handleAddToCart}
         disabled={!inStock || isAdding}
         className={cn(
-          "w-full font-semibold rounded-lg py-2 mt-auto transition-all duration-300",
+          `w-full font-semibold rounded-lg py-2 mt-auto transition-all duration-300 ${
+            isMobile ? "text-sm" : ""
+          }`,
           inStock
             ? showSuccess
               ? "bg-green-600 text-white scale-105"

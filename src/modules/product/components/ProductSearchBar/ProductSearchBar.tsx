@@ -11,7 +11,7 @@ const ProductSearchBar = () => {
   const { isMobile, isTablet } = useDevice();
   const searchBarRef = useRef<HTMLDivElement>(null);
   const { isHover, handleMouseEnter, handleMouseLeave } = useHover({
-    delay: 500,
+    delay: 200,
   });
   const [keyword, setKeyword] = useState("");
   const debouncedKeyword = useDebounce(keyword, 300);

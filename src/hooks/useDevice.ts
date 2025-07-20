@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 interface DeviceState {
   isMobile: boolean;
@@ -14,13 +14,18 @@ const BREAKPOINTS = {
   tablet: 1024,
 } as const;
 
+const isClient = () => typeof window !== "undefined";
+
 export const useDevice = (): DeviceState => {
   const [deviceState, setDeviceState] = useState<DeviceState>({
-    isMobile: false,
-    isTablet: false,
-    isDesktop: false,
-    width: 0,
-    height: 0,
+    isMobile: isClient() ? window.innerWidth < BREAKPOINTS.mobile : false,
+    isTablet:
+      isClient() &&
+      window.innerWidth >= BREAKPOINTS.mobile &&
+      window.innerWidth < BREAKPOINTS.tablet,
+    isDesktop: isClient() ? window.innerWidth >= BREAKPOINTS.tablet : true,
+    width: isClient() ? window.innerWidth : 0,
+    height: isClient() ? window.innerHeight : 0,
   });
 
   useEffect(() => {
@@ -43,13 +48,10 @@ export const useDevice = (): DeviceState => {
       });
     };
 
-    // Set initial state
     updateDeviceState();
 
-    // Add event listener for window resize
     window.addEventListener("resize", updateDeviceState);
 
-    // Cleanup event listener on unmount
     return () => {
       window.removeEventListener("resize", updateDeviceState);
     };

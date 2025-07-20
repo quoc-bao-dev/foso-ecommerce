@@ -2,6 +2,7 @@
 
 import { Container } from "@/components/layouts";
 import { useI18n, useInView } from "@/hooks";
+import { useDevice } from "@/hooks/useDevice";
 import {
   ProductCard,
   ProductCardSkeletonList,
@@ -14,6 +15,7 @@ import { useProductSectionStore } from "../../store";
 
 const ProductSection = () => {
   const { t, currentLocale } = useI18n();
+  const { isMobile } = useDevice();
   const { sort, gtPrice, ltPrice } = useProductSectionStore();
   const {
     data: products,
@@ -55,26 +57,36 @@ const ProductSection = () => {
 
   return (
     <Container>
-      <div className="flex gap-5">
+      <div className={`flex gap-5 ${isMobile ? "!flex-col !gap-3" : ""}`}>
         {/* filter */}
-        <div className="w-[315px]">
+        <div className={`w-[315px] ${isMobile ? "!hidden" : ""}`}>
           <div className="h-fit sticky top-[30px]">
             <ProductFilter />
           </div>
         </div>
         {/* product list */}
         <div className="flex-1">
-          <div className="flex justify-between items-center">
-            <h2 className="text-xl font-semibold">
+          <div
+            className={`flex justify-between items-center ${
+              isMobile ? "!flex-col !gap-3 !items-start" : ""
+            }`}
+          >
+            <h2
+              className={`text-xl font-semibold ${isMobile ? "!text-lg" : ""}`}
+            >
               {t("product.productList")}
             </h2>
             <ProductSortBar />
           </div>
-          <div className="pt-5">
+          <div className={`pt-5 ${isMobile ? "!pt-3" : ""}`}>
             {isLoading ? (
               <ProductCardSkeletonList count={8} />
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-5">
+              <div
+                className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-5 ${
+                  isMobile ? "!gap-3" : ""
+                }`}
+              >
                 {productsList?.map((product) => (
                   <ProductCard
                     key={product.id}
@@ -86,7 +98,7 @@ const ProductSection = () => {
             )}
           </div>
           {isFetchingNextPage && (
-            <div className="pt-5">
+            <div className={`pt-5 ${isMobile ? "!pt-3" : ""}`}>
               <ProductCardSkeletonList count={4} />
             </div>
           )}
