@@ -45,6 +45,37 @@ export class ProductService {
     this.dataPath = path.join(process.cwd(), "src", "db", "products.json");
   }
 
+  // Static method for server-side data loading
+  static getStaticProducts(lang: "vi" | "en" = "vi"): Product[] {
+    const service = new ProductService();
+    return service.getAllProducts(lang);
+  }
+
+  static getStaticProductById(
+    id: string,
+    lang: "vi" | "en" = "vi"
+  ): Product | null {
+    const service = new ProductService();
+    return service.getProductById(id, lang);
+  }
+
+  static getStaticProductsByCategory(
+    categoryId: string,
+    lang: "vi" | "en" = "vi"
+  ): Product[] {
+    const service = new ProductService();
+    return service.getProductsByCategory(categoryId, lang);
+  }
+
+  static getStaticFeaturedProducts(
+    lang: "vi" | "en" = "vi",
+    limit: number = 8
+  ): Product[] {
+    const service = new ProductService();
+    const allProducts = service.getAllProducts(lang);
+    return allProducts.filter((product) => product.isFeatured).slice(0, limit);
+  }
+
   private readProducts(): ProductData[] {
     try {
       const data = fs.readFileSync(this.dataPath, "utf-8");
