@@ -1,5 +1,6 @@
 "use client";
 
+import { AppLoading } from "@/components/common";
 import { Container } from "@/components/layouts";
 import { useI18n, useInView } from "@/hooks";
 import { useDevice } from "@/hooks/useDevice";
@@ -31,6 +32,7 @@ const ProductSectionServer = ({
     hasNextPage,
     isFetchingNextPage,
     isLoading,
+    isFetching,
   } = useInfiniteProducts({
     page: 1,
     limit: 8,
@@ -116,6 +118,7 @@ const ProductSectionServer = ({
         </div>
       </div>
       <div ref={ref as React.RefObject<HTMLDivElement>}></div>
+      {isFetching && !isFetchingNextPage && <AppLoading />}
     </Container>
   );
 };

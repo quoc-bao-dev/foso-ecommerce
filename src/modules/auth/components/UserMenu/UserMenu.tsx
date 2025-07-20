@@ -8,6 +8,7 @@ import {
 } from "react-icons/io5";
 import { useAuth } from "../../store/useAuth";
 import { useI18n } from "@/hooks";
+import { AppLoading } from "@/components/common";
 
 // Mock user data - thay thế bằng context hoặc state management thực tế
 
@@ -78,13 +79,7 @@ const UserMenu = () => {
           </div>
         )}
       </div>
-      {isLoading && (
-        <div className="fixed top-0 left-0 w-full h-full bg-black/50 z-50">
-          <div className="flex items-center justify-center h-full">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-brand-500"></div>
-          </div>
-        </div>
-      )}
+      {isLoading && <AppLoading />}
     </>
   );
 };

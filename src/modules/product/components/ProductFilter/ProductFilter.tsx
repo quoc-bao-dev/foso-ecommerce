@@ -211,6 +211,7 @@ const ProductFilter = () => {
                         }
                       `}
                       onClick={() => handleRadio(filter.key, idx)}
+                      type="button"
                     >
                       {opt.label}
                       {selected[filter.key] === idx && (
