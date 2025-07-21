@@ -1,8 +1,8 @@
-import { AutoPopupModal } from "@/components/common";
+import { AutoPopup } from "@/components/common";
 
 const GettingModal = () => {
   return (
-    <AutoPopupModal
+    <AutoPopup
       title="Tính năng kỹ thuật nổi bật"
       content={
         <div className="max-h-[60vh] overflow-y-auto">
@@ -13,7 +13,7 @@ const GettingModal = () => {
               </h3>
               <ul className="space-y-1 text-gray-600">
                 <li>• Next.js 15 với App Router và TypeScript</li>
-                <li>• Tailwind CSS v4 với PostCSS</li>
+                <li>• Tailwind CSS v4</li>
                 <li>• Zustand cho quản lý state toàn cục</li>
                 <li>• TanStack Query v5 cho data fetching và caching</li>
               </ul>

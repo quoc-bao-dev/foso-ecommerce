@@ -12,7 +12,7 @@ interface AutoPopupModalProps {
   className?: string;
 }
 
-const AutoPopupModal: React.FC<AutoPopupModalProps> = ({
+const AutoPopup: React.FC<AutoPopupModalProps> = ({
   title = "Chào mừng bạn!",
   content = "Đây là modal tự động nổi bật sau 3 giây.",
   onClose,
@@ -97,4 +97,4 @@ const AutoPopupModal: React.FC<AutoPopupModalProps> = ({
   );
 };
 
-export default AutoPopupModal;
+export default AutoPopup;
